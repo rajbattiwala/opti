@@ -1,0 +1,217 @@
+<!--
+<div class="container1">
+    <div class="form-bg">
+        <div class="content-area">
+            <fieldset>
+                <legend class="heading">Purchase Item Details</legend>
+                <div class="search-container">
+                    <form name="demo">
+                        <div class="head">
+                            <input type="text" placeholder="Search by Keyword.." [(ngModel)]="elementname" name="search" autocomplete="off">
+                            <div class="icon"><img src="../../../assets/filter.png" (click)="onFocus()"></div>  
+                            <div class="btns">
+                                <div class="btn1" id="hide-print">
+                                    <button printSectionId="to-print"  [useExistingCss]="true" ngxPrint type="button">Print</button>
+                                </div>
+                                <div class="btn1">
+                                    <button (click)="downloadPdf()" type="button">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div [ngClass]="{'filters': ! visible, 'filters-visible': visible}">
+                            <div class="input-names"> 
+                                <select id='names' name='itemname' [(ngModel)]="itemSelect" (change)="onChange($event)">
+                                    <option disabled>---Select Item Name---</option>
+                                    <option class="dropdown" *ngFor="let item of elements" [value]="item.name">  
+                                        {{item.name}}
+                                    </option>    
+                                </select>
+                            </div>
+        
+                            <div class="input-names"> 
+                                <select id='codes' name='itemcode' [(ngModel)]="codeSelect" (change)="onChange($event)">
+                                    <option disabled>---Select Item Code---</option>
+                                    <option *ngFor="let item of elements" [value]="item.code">
+                                      {{item.code}}
+                                    </option>    
+                                </select>
+                            </div>
+                            
+                            <div [ngClass]="{'clear': ! clear, 'clear-visible': clear}" (click)="unselect()"><button id="cancel">Clear Selection</button></div>
+
+                            <div class="input-names" id="state">
+                                <input type="radio" id="active" name="options" value="active" (change)="onItemChange($event)">
+                                <label for="active">Active</label><br>
+
+                                <input type="radio" id="inactive" name="options" value="inactive" (change)="onItemChange($event)">
+                                <label for="inactive">InActive</label><br>
+
+                                <input type="radio" id="all" name="options" value="all" (change)="onItemChange($event)" checked="checked">
+                                <label for="all">All</label><br>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <fieldset >
+                    <legend class="heading">Purchase Item List</legend>
+                    <div class="table-container" id="to-print">
+                        <table id="export">
+                            <thead>
+                                <tr>
+                                    <th class="disappear"> </th>
+                                    <th class="disappear"> </th>
+                                    <th>Sr. No.</th>
+                                    <th>Purchase Item</th>
+                                    <th>Item Code</th>
+                                    <th>Material Type</th>
+                                    <th>Yield%</th>
+                                    <th>Category</th>
+                                    <th>Purchase Cost</th>
+                                    <th>Stock</th>
+                                </tr>    
+                            </thead>
+                            
+                            <tbody>
+                                <tr *ngFor = "let item of finalelements;  let ndx = index">
+                                    <td class="disappear"><a (click)="sendData()" routerLink="/item-master/{{item.id}}" >Edit</a></td>
+                                    <td class="disappear"><img src="../../../assets/delete.png" (click)="rowDelete(ndx+1)" style="height: 23px; width: 23px; margin: 2px 0 2px 2px;"></td>
+                                    <td>{{item.id}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.code}}</td>
+                                    <td>{{item.type}}</td>
+                                    <td style="text-align: right;">{{item.yield}}</td>
+                                    <td>{{item.category}}</td>
+                                    <td style="text-align: right;">{{item.cost}}</td>
+                                    <td style="text-align: right;">{{item.stock}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div [ngClass]="finalelements.length > 0 ? 'hidden': 'visible'">
+                            <tr>No Results Found</tr>
+                        </div>
+                    </div>
+                </fieldset>
+            </fieldset>
+        </div>
+    </div>
+</div>
+-->
+<div class="container1">
+    <div class="allelements">
+        <div class="head">
+            <div class="searchbar">
+                <input type="text" placeholder="Search by Keyword.." [(ngModel)]="elementname" name="search"
+                    autocomplete="off">
+                <img src="../../../assets/search.svg">
+                <div class="icon"><img src="../../../assets/filter.png" (click)="onFocus()"></div>
+            </div>
+            
+            <div class="btns">
+                <div id="hide-print">
+                    <button printSectionId="to-print" [useExistingCss]="true" ngxPrint
+                        type="button">Print</button>
+                </div>
+                <div>
+                    <button (click)="downloadPdf()" type="button" style="margin-left: 6px;">Download</button>
+                </div>
+            </div>
+        </div>
+            
+        <form name="demo">
+            <div [ngClass]="{'filters': ! visible, 'filters-visible': visible}">
+                <div class="input-names">
+                    <label for="itmname">Select Item Name</label>
+                    <select id='names' name='itemname' [(ngModel)]="itemSelect" (change)="onChange($event)">
+                        <option disabled>---Select Item Name---</option>
+                        <option class="dropdown" *ngFor="let item of elements" [value]="item.name">
+                            {{item.name}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="input-names">
+                    <label for="itmcode">Select Item Code</label>
+                    <select id='codes' name='itemcode' [(ngModel)]="codeSelect" (change)="onChange($event)">
+                        <option disabled>---Select Item Code---</option>
+                        <option *ngFor="let item of elements" [value]="item.code">
+                            {{item.code}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="input-names" id="state">
+                    <input type="radio" id="active" name="options" value="active"
+                        (change)="onItemChange($event)">
+                    <label for="active">Active</label><br>
+
+                    <input type="radio" id="inactive" name="options" value="inactive"
+                        (change)="onItemChange($event)">
+                    <label for="inactive">InActive</label><br>
+
+                    <input type="radio" id="all" name="options" value="all" (change)="onItemChange($event)"
+                        checked="checked">
+                    <label for="all">All</label><br>
+                </div>
+                <div [ngClass]="{'clear': ! clear, 'clear-visible': clear}" (click)="unselect()"><button
+                    id="cancel">Clear Selection</button></div>
+            </div>
+        </form>
+            
+        <div class="form-bg" style="padding: 12px 0 0 0; margin-top: 1em; position: relative; z-index: 1000;" id="to-print">
+            <div class="table-responsive">
+                <table class="table table-borderless table-sm table-striped table-hover" style="width: 97%;" id="export">
+                    <thead>
+                        <tr style="font-family: system-ui; background-color: var(--primary); color: white;">
+                            <th class="disappear"> </th>
+                            <th class="disappear"> </th>
+                            <th>Sr. No.</th>
+                            <th>Purchase Item</th>
+                            <th>Item Code</th>
+                            <th>Material Type</th>
+                            <th>Yield%</th>
+                            <th>Category</th>
+                            <th scope="col">Purchase Cost</th>
+                            <th scope="col">Stock</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let item of finalelements;  let ndx = index">
+                            <td class="disappear"><a (click)="sendData()" routerLink="/item-master/{{item.id}}">Edit</a>
+                            </td>
+                            <td class="disappear"><img src="../../../assets/delete.png" (click)="rowDelete(ndx+1)"
+                                    style="height: 23px; width: 23px; margin: 2px 0 2px 2px;"></td>
+                            <td scope="row">{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.code}}</td>
+                            <td>{{item.type}}</td>
+                            <td style="text-align: right;">{{item.yield}}</td>
+                            <td>{{item.category}}</td>
+                            <td style="text-align: right;">{{item.cost}}</td>
+                            <td style="text-align: right;">{{item.stock}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div [ngClass]="finalelements.length > 0 ? 'hidden': 'visible'">
+                    <tr>No Results Found</tr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="position: absolute; width: 780px;
+        height: 340px; right: 0px;
+        bottom: 0px;
+        background: linear-gradient(131.17deg, rgb(161, 206, 255) 42.31%, rgba(255, 255, 255, 0) 106.07%);
+        clip-path: polygon(0px 100%, 100% 100%, 100% 0px);
+        opacity: 0.4;">
+    </div> 
+    <div style="position: absolute;
+        width: 100%;
+        height: 80%;
+        bottom: 0px;
+        background: linear-gradient(161.17deg, rgb(161, 206, 255) 30%, rgba(255, 255, 255, 0) 84.07%);
+        clip-path: polygon(0% 0%, 0% 0%, 100% 100%, 0% 100%);
+        opacity: 0.15;">
+    </div>  
+</div>

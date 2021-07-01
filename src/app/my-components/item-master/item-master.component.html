@@ -1,0 +1,99 @@
+<div class="container1">
+    <form #itemForm="ngForm">
+    <div class="form-bg">
+        <div class="head">
+            <h2>Purchase Item Master</h2>
+            <div class="holder">
+                <div class="line"></div>
+                <div class="a-right"><a [routerLink]="['/item-master-register']" >Item Register</a></div>
+            </div>
+        </div>
+        <div class="all-content">
+            <div class="left">
+            <div class="input-elements">
+                <div class="input-names"> 
+                    <label for="itemname">Item Name</label>
+                    <input #userdata class="form-control" type="text" name="name" placeholder="Enter Item Name" [(ngModel)]="data.name" required>
+                </div>
+
+                <div class="input-names"> 
+                    <label for="itemcode">Item Code</label>
+                    <input class="form-control" type="text" name="code" placeholder="Enter Item Code" [(ngModel)]="data.code" required>
+                </div>
+
+                <div class="input-names"> 
+                    <label for="category">Category</label>
+                    <input class="form-control" type="text" name="category" placeholder="Enter Category" [(ngModel)]="data.category" required>
+                </div>
+            </div>
+            <div class="input-elements">
+                <div class="input-names" id="radioTop">
+                    <div class="radio">
+                        <div class="radio-individual">
+                            <input (click)="show()" type="radio" id="scrap" name="categories" value="scrap" [(ngModel)]="data.type">
+                            <label for="scrap">Scrap</label><br>
+                        </div>
+                        <div class="radio-individual">
+                            <input (click)="show()" type="radio" id="turning" name="categories" value="turning" [(ngModel)]="data.type">
+                            <label for="turning">Turning</label><br>
+                        </div>
+                        <div class="radio-individual">
+                            <input (click)="show()" type="radio" id="ferroalloy" name="categories" value="ferroalloy" [(ngModel)]="data.type">
+                            <label for="ferroalloy">Ferroalloy</label><br>
+                        </div>
+                        <div class="radio-individual">
+                            <input (click)="show()" type="radio" id="returns" name="categories" value="returns" [(ngModel)]="data.type">
+                            <label for="returns">Returns</label><br>
+                        </div>
+                        <div class="radio-individual">
+                            <input (click)="hider()" type="radio" id="deoxident" name="categories" value="deoxident" [(ngModel)]="data.type">
+                            <label for="deoxident">DeOxident</label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-names"> 
+                    <label for="purchasecost">Purchase Cost</label>
+                    <input class="form-control" id="pur" type="number" name="cost" placeholder="Enter Purchase Cost per Kg" required [(ngModel)]="data.cost">
+                </div>
+            </div>
+            <div class="input-elements" id="yield-selected">
+                <div class="input-names"> 
+                    <label for="yield">Yield %</label>
+                    <input class="form-control" type="number" placeholder="Enter Yield in %" required name="yield" [(ngModel)]="data.yield">
+                </div>
+                <div class="offsetting"> 
+                    <div *ngIf="hideMe" class="radio-individual">
+                        <input type="checkbox" id="exclude-weight" name="excludeweight" value="excludeweight">
+                        <label for="exclude-weight">Exclude in Weight</label><br>
+                    </div>
+                    <div class="radio-individual">
+                        <input (click)="selection()" type="checkbox" id="consumed-unit" name="consumedunit" value="consumedunit">
+                        <label for="consumed-unit">Consumed as Whole unit</label><br>
+                    </div>
+                </div>
+                <div *ngIf="selected" class="input-names"> 
+                    <label for="unitweight">Unit Weight</label>
+                    <input class="form-control" id="unit" type="number" placeholder="Enter Unit Weight per Kg" required>
+                </div>
+            </div>
+            </div>
+
+            <div  [ngClass]="{'right-new': additional.length > 13, 'right': additional.length < 14}">
+                <table id="mozilla">
+                    <tr id="mozilla">
+                        <th>Name</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr id="mozilla" *ngFor = "let element of additional">
+                        <td>{{element.name}}</td>
+                        <td><input type="number" class="value-control" placeholder="0.0">{{element.value}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div  class="btn-center">
+            <button (click)="saveData()" type="submit">Save</button>
+        </div>
+    </div>
+    </form>
+</div>

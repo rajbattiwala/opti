@@ -1,0 +1,52 @@
+<div class="container1">
+    <form #userForm="ngForm">
+        <div class="form">
+            <h2>Register</h2>
+        <div class="input-area">
+            <div class="input-names"> 
+                <label for="name"><b>Full Name</b></label>
+                <input type="text" #name="ngModel" class="form-control" [class.is-invalid]="name.invalid && name.touched"
+                    placeholder="Enter Name" name="name" [(ngModel)]="userModel.name" required>
+            </div>
+            <div class="input-names">
+                <label for="cname"><b>Company Name</b></label>
+                <input type="text" #cname="ngModel" class="form-control" [class.is-invalid]="cname.invalid && cname.touched"
+                    [(ngModel)]="userModel.cname" placeholder="Company Name" name="cname" required>
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="input-names">
+                <label for="pno"><b>Phone Number</b></label>
+                <input type="tel" #pno="ngModel" class="form-control" [class.is-invalid]="pno.invalid && pno.touched"
+                [(ngModel)]="userModel.pno" placeholder="Enter Phone Number" name="pno" required>
+            </div>
+        
+            <div class="input-names">
+                <label for="email"><b>Email</b></label>
+                <input type="text" #email="ngModel" class="form-control"  required
+                [class.is-invalid]="email.invalid && email.touched"
+                [(ngModel)]="userModel.email" placeholder="Enter Email" name="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+                <small class="danger" [class.dont-show]="email.valid || email.untouched ">Please enter a valid Email address!</small>
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="input-names">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" #uname="ngModel" class="input-uname" [class.is-invalid]="uname.invalid && uname.touched"
+                [(ngModel)]="userModel.uname" placeholder="Create Username" name="uname" required>
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="input-names">
+                <label for="psw"><b>OTP</b></label>
+                <input type="password" class="input-uname" placeholder="Enter OTP" name="psw" required>
+            </div>
+        </div>
+        <div  class="btn-center">
+            <button [disabled]="userForm.form.invalid" type="submit">Register</button>
+        </div>
+        
+            <p>Already have Account? <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></p>
+        </div>
+    </form>
+</div>

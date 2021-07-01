@@ -1,0 +1,15 @@
+.container1{
+    background-color: var(--secondary);
+    height: -webkit-fill-available;
+    max-height: -moz-available;
+    height: 90.8%;
+    padding-top: 2em;
+}
+
+.center{
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+
+
+

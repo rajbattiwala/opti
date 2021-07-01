@@ -1,0 +1,244 @@
+.allelements{
+    width: 90%;
+    max-width: 80em;
+}
+.form-bg{
+    background-color: white;
+    height: auto;
+    width: 100%;
+    border-radius: 1em;
+    /*max-width: 70em;
+    border-radius: 1rem 1rem;*/    
+    margin-bottom: 2em;
+    box-shadow: 0.4rem 0.4rem 1rem rgb(122 191 255 / 22%), 
+                1rem 1.2rem 2rem rgb(149 202 252 / 30%);
+}
+
+.head{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+img{
+    max-height: 26px;
+    max-width: 26px;
+}
+
+.searchbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 78%;
+    height: 3.2em;
+    padding: 6px 19px;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: 0.4rem 0.4rem 1rem rgb(122 191 255 / 22%), 
+    1rem 1.2rem 2rem rgb(149 202 252 / 30%);
+}
+
+.searchbar > img {
+    left: 15px;
+}
+
+input[name="search"]{
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 1.2em;
+    width: 90%;
+    border: none;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+select{
+    outline: none;
+    height: 26px;
+    padding: 3px 0px;
+    border: 1px solid var(--darksecondary);
+    box-sizing: border-box;
+}
+
+.dropdown{
+    appearance: none;
+    outline: none;
+    padding: 3px 0px;
+    border: 1px solid var(--darksecondary);
+    box-sizing: border-box;
+}
+
+input[name="search"]:focus, select:focus{
+    outline: none;
+}
+
+.icon{
+    max-height: 26px;
+    padding-left: 10px;
+    display: inline-flex;
+}
+
+.btns{
+    justify-content: space-evenly;
+    display: flex;
+    width: 14em;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 1em;
+} 
+
+button{
+    background-image: linear-gradient(to bottom right, var(--primary), var(--darkprimary));
+    border: none;
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 2em;
+    color: white;
+    cursor: pointer;
+    font-family: revert;
+    font-weight: bold;
+}
+
+#cancel{
+    background-image: linear-gradient(to bottom right, #e21717, #b4161b);
+    border: none;
+    border-radius: 4px;
+    height: 25px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+}
+
+.filters , .clear{
+    display: none;
+}
+
+.filters-visible{
+    display: flex;
+    position: sticky;
+    margin-top: 1em;
+    width: 70%;
+    max-width: 50em;
+    padding: 0.6em;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 10;
+    border-radius: 1em;
+    background-color: #ffffff;
+    box-shadow: 0.4rem 0.4rem 1rem rgb(122 191 255 / 22%), 1rem 1.2rem 2rem rgb(149 202 252 / 30%);
+
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.clear-visible{
+    width: 100%;
+    padding: 1em;
+}
+
+.input-names{
+    display: grid;
+    height: fit-content;
+    margin: 12px;
+}
+
+label[for="itmname"], label[for="itmcode"]{
+    margin: 0;
+    display: flex;
+    float: left;
+}
+
+label{
+    margin: 0 6px 0 4px;
+}
+
+#state{
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: var(--secondary);
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #dbefff;
+}
+
+.hidden{
+    display: none;
+}
+
+.visible{
+    display: block;
+    background: #ff363615;
+    color: #ff0033;
+    padding: 10px;
+    font-weight: 500;
+    width: 97%;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+@media print {
+    .disappear{
+        display: none;
+    }
+}
+
+@media (max-width: 832px) {
+    #state{
+        margin: 0;
+    }
+}
+
+@media (min-width: 800px) {
+    table{
+        overflow: visible;
+    }
+}
+
+@media (max-width: 690px) {
+    table{
+        display: flow-root !important;
+        overflow: auto;
+    }
+    .head{
+        flex-wrap: wrap;
+    }
+    .btns{
+        padding-top: 1em;
+    }
+    .searchbar{
+        width: 100%;
+    }
+}
+
+@media (max-width: 470px) {
+    #hide-print{
+        display: none;
+    }
+}
+
+
+
