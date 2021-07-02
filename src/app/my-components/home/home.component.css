@@ -80,6 +80,7 @@ a {
 @media only screen and (max-width: 768px) {
     .nav-menu {
         position: fixed;
+        z-index: 2000;
         left: -100%;
         margin-left: 2.5%;
         top: 5rem;
@@ -94,6 +95,27 @@ a {
 
     .nav-menu.active {
         left: 0;
+        z-index: 2000;
+    }
+
+    .darken-bg{
+        display: none;
+    }
+
+    .darken-bg.active{   
+        display: flex; 
+        content: ''; 
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(5, 45, 84,0.5);
+        pointer-events: none;
+        z-index:1001; opacity:1; 
+        visibility:visible;
+        position: fixed;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
     }
 
     .nav-item {
@@ -103,6 +125,7 @@ a {
     .hamburger {
         display: block;
         cursor: pointer;
+        z-index: 1001;
     }
 
     .hamburger.active .bar:nth-child(2) {

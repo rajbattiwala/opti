@@ -1,6 +1,8 @@
 .allelements{
     width: 90%;
     max-width: 80em;
+    position: relative;
+    z-index: 20;
 }
 .form-bg{
     background-color: white;
@@ -220,9 +222,12 @@ label{
     }
 }
 
-@media (max-width: 832px) {
+@media (max-width: 842px) {
     #state{
         margin: 0;
+    }
+    .clear-btn-div{
+        margin-top: 14px;
     }
 }
 
@@ -251,6 +256,9 @@ label{
 @media (max-width: 470px) {
     #hide-print{
         display: none;
+    }
+    label{
+        justify-content: center;
     }
 }
 

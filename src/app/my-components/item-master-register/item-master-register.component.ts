@@ -254,6 +254,9 @@ export class ItemMasterRegisterComponent implements OnInit {
     this.totalrecords = this.finalelements.length
     if(Array.isArray(this.finalelements) && this.finalelements.length)
     {
+      this.clear = false;
+      this.itemSelect = undefined;
+      this.codeSelect = undefined;
       this.filteredelements = this.filterElements(this._elementname);
       this.finalelements = this.filteredelements
       this.page = 1

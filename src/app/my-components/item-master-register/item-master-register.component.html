@@ -153,7 +153,7 @@
                         checked="checked">
                     <label for="all">All</label><br>
                 </div>
-                <div style="width: 100%;">
+                <div class="clear-btn-div" style="width: 100%;">
                     <div [ngClass]="{'clear': ! clear, 'clear-visible': clear}" (click)="unselect()">
                         <button id="cancel">Clear Selection</button>
                     </div>
@@ -186,7 +186,7 @@
                             totalItems: totalrecords} ;  let ndx = index  " >
                             <td class="disappear"><a (click)="sendData()" routerLink="/item-master/{{item.id}}">Edit</a>
                             </td>
-                            <td class="disappear"><img src="assets/delete.png" (click)="rowDelete(ndx+1)"
+                            <td class="disappear"><img src="assets/delete.svg" (click)="rowDelete(ndx+1)"
                                     style="height: 23px; width: 23px;"></td>
                             <td scope="row">{{item.id}}</td>
                             <td>{{item.name}}</td>
