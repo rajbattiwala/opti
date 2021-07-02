@@ -129,10 +129,10 @@
                         </option>
                     </select>
                 </div>
-
+                
                 <div class="input-names">
                     <label for="itmcode">Select Item Code</label>
-                    <select id='codes' name='itemcode' [(ngModel)]="codeSelect" (change)="onChange($event)">
+                    <select class="form-select form-select-lg mb-3" id="codes"  name='itemcode' [(ngModel)]="codeSelect" (change)="onChange($event)">
                         <option disabled>---Select Item Code---</option>
                         <option *ngFor="let item of elements" [value]="item.code">
                             {{item.code}}
@@ -153,8 +153,11 @@
                         checked="checked">
                     <label for="all">All</label><br>
                 </div>
-                <div [ngClass]="{'clear': ! clear, 'clear-visible': clear}" (click)="unselect()"><button
-                    id="cancel">Clear Selection</button></div>
+                <div style="width: 100%;">
+                    <div [ngClass]="{'clear': ! clear, 'clear-visible': clear}" (click)="unselect()">
+                        <button id="cancel">Clear Selection</button>
+                    </div>
+                </div>
             </div>
         </form>
             
@@ -177,24 +180,31 @@
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let item of finalelements;  let ndx = index">
+                        <tr *ngFor="let item of finalelements | paginate: { id: 'pagination',
+                            itemsPerPage: pageSize,
+                            currentPage: page,
+                            totalItems: totalrecords} ;  let ndx = index  " >
                             <td class="disappear"><a (click)="sendData()" routerLink="/item-master/{{item.id}}">Edit</a>
                             </td>
                             <td class="disappear"><img src="../../../assets/delete.png" (click)="rowDelete(ndx+1)"
-                                    style="height: 23px; width: 23px; margin: 2px 0 2px 2px;"></td>
+                                    style="height: 23px; width: 23px;"></td>
                             <td scope="row">{{item.id}}</td>
                             <td>{{item.name}}</td>
                             <td>{{item.code}}</td>
                             <td>{{item.type}}</td>
-                            <td style="text-align: right;">{{item.yield}}</td>
+                            <td style="text-align: right; padding-right: 2%;">{{item.yield}}</td>
                             <td>{{item.category}}</td>
-                            <td style="text-align: right;">{{item.cost}}</td>
+                            <td style="text-align: right; width: 7.5em;">{{item.cost}}</td>
                             <td style="text-align: right;">{{item.stock}}</td>
                         </tr>
                     </tbody>
                 </table>
                 <div [ngClass]="finalelements.length > 0 ? 'hidden': 'visible'">
                     <tr>No Results Found</tr>
+                </div>
+                <div class="pagination-center"><pagination-controls  id="pagination"
+                    (pageChange)="page = $event" >
+                    </pagination-controls>
                 </div>
             </div>
         </div>

@@ -25,12 +25,16 @@ export class ItemMasterRegisterComponent implements OnInit {
 
   allelements: Array<elements> = [];
 
+  page: number = 1;
+  pageSize: number = 5;
+  totalrecords: number | undefined;
   
   visible:boolean = false;
   clear:boolean = false;
 
   itemSelect:any
   codeSelect:any
+  storedTarget:any
   
   downloadPdf(){
     $("#export").find('tr td:nth-child(1)').hide()
@@ -58,12 +62,15 @@ export class ItemMasterRegisterComponent implements OnInit {
 
   public onChange(event:any): void {  
      console.log(event.target.value); // logging selected drop down----------------
+     this.storedTarget = event.target.value
      this.clear = true;
+     this.page = 1;
      this.filteredelements = this.elements.filter(result =>{                                 
         return result.name?.replace(/[^a-zA-Z ]/g, "").match(event.target.value.replace(/[^a-zA-Z ]/g, "")) ||
           result.code?.replace(/[^a-zA-Z ]/g, "").match(event.target.value.replace(/[^a-zA-Z ]/g, ""));
       });
      this.finalelements = this.filteredelements;
+     this.totalrecords = this.finalelements.length;
   }
   
   get elementname(): string{
@@ -74,11 +81,11 @@ export class ItemMasterRegisterComponent implements OnInit {
     this._elementname = value;
     this.filteredelements = this.filterElements(value);
     this.finalelements = this.filteredelements;
+    this.totalrecords = this.finalelements.length
+    this.page = 1
   }
 
   filterElements(searchString: string){
-    /*return this.elements.filter(res=>
-      res.name?.toLowerCase().indexOf(searchString.toLowerCase()) !== -1);*/
       return this.elements.filter(result =>{
         return result.name?.toLocaleLowerCase().match(searchString.toLocaleLowerCase()) || result.code?.toLocaleLowerCase().match(searchString.toLocaleLowerCase());
       }); 
@@ -191,6 +198,17 @@ export class ItemMasterRegisterComponent implements OnInit {
         category: "SAP - 01",
         cost: "15",
         stock: "5000"
+      },
+      {
+        id: undefined,
+        state: false,
+        name: "ALANG SCRAP",
+        code: "ALANG MATERIAL",
+        type: "scrap",
+        yield: "93",
+        category: "SAP - 01",
+        cost: "15",
+        stock: "5000"
       }  
     ]
 
@@ -208,6 +226,8 @@ export class ItemMasterRegisterComponent implements OnInit {
     //-------Assigning ID to each object of array--------------
     
     this.finalelements.forEach((o, i) => o.id = i + 1);
+
+    this.totalrecords = this.finalelements.length
     
   }
 
@@ -223,13 +243,21 @@ export class ItemMasterRegisterComponent implements OnInit {
     this.clear = false;
     this.itemSelect = undefined;
     this.codeSelect = undefined;
+    this.page = 1;
     this.filteredelements = this.elements;
     this.finalelements = this.filteredelements;
+    this.totalrecords = this.finalelements.length
  }
 
   rowDelete(i:any){
     this.finalelements.splice(i-1, 1);
     this.finalelements.forEach((o, i) => o.id = i + 1);
+    this.totalrecords = this.finalelements.length
+
+    //calculating the page number-------------------------------------------
+    //if the user delets data from 2nd page, he'll stay on 2nd--------------
+    //he'll move to 1st page when all data on page 2 is deleted-------------
+    this.page = this.page > Math.ceil(this.totalrecords/this.pageSize) ? Math.ceil(this.totalrecords/this.pageSize) : this.page
  }
 
   onItemChange(event:any){
@@ -238,14 +266,20 @@ export class ItemMasterRegisterComponent implements OnInit {
       this.finalelements = this.filteredelements.filter(result =>{
         return result.state==true;
       });
+      this.totalrecords = this.finalelements.length
+      this.page = 1
     }
     else if(event.target.value == "inactive"){
         this.finalelements = this.filteredelements.filter(result =>{
           return result.state==false;
         });
+        this.totalrecords = this.finalelements.length
+        this.page = 1
     }
     else{
       this.finalelements = this.filteredelements;
+      this.totalrecords = this.finalelements.length
+      this.page = 1
     }
   }
 

@@ -10,6 +10,7 @@ import { HomeComponent } from './my-components/home/home.component';
 import { ItemMasterRegisterComponent } from './my-components/item-master-register/item-master-register.component';
 import { NgxPrintModule } from 'ngx-print';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -27,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     FormsModule,
     NgxPrintModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

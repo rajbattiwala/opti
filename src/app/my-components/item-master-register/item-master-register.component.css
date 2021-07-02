@@ -23,6 +23,7 @@
 img{
     max-height: 26px;
     max-width: 26px;
+    cursor: pointer;
 }
 
 .searchbar{
@@ -64,8 +65,12 @@ select{
     outline: none;
     height: 26px;
     padding: 3px 0px;
-    border: 1px solid var(--darksecondary);
+    border: none;
+    box-shadow: 2px 1px 2px rgb(133 192 255 /45%),7px 6px 12px var(--secondary), -1px -1px 3px rgb(133 192 255 /24%);
     box-sizing: border-box;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 
 .dropdown{
@@ -111,7 +116,8 @@ button{
     background-image: linear-gradient(to bottom right, #e21717, #b4161b);
     border: none;
     border-radius: 4px;
-    height: 25px;
+    height: 28px;
+    margin: 0 0 12px 0;
     color: white;
     cursor: pointer;
     font-weight: bold;
@@ -144,8 +150,7 @@ button{
 }
 
 .clear-visible{
-    width: 100%;
-    padding: 1em;
+    width: fit-content;
 }
 
 .input-names{
@@ -158,6 +163,7 @@ label[for="itmname"], label[for="itmcode"]{
     margin: 0;
     display: flex;
     float: left;
+    margin-bottom: 4px;
 }
 
 label{
@@ -166,9 +172,13 @@ label{
 
 #state{
     display: flex;
-    margin-top: 5%;
+    margin-top: 6%;
     justify-content: center;
     align-items: center;
+}
+
+.table td, .table th {
+    vertical-align: middle;
 }
 
 .table-container{
@@ -198,6 +208,10 @@ label{
     width: 97%;
     margin: 10px 0;
     border-radius: 10px;
+}
+
+.pagination-center {
+    padding-right: 25.97px;
 }
 
 @media print {
