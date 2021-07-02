@@ -11,7 +11,8 @@
     max-width: 70em;
     border-radius: 1rem 1rem;    
     margin-bottom: 2em;
-    box-shadow: 1rem 1.2rem 2rem rgba(189, 195,199, 0.3);
+    box-shadow: 0.4rem 0.4rem 1rem rgb(122 191 255 / 22%), 
+                1rem 1.2rem 2rem rgb(149 202 252 / 30%);
 }
 
 h2{

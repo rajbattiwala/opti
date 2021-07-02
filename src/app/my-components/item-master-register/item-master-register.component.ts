@@ -65,11 +65,16 @@ export class ItemMasterRegisterComponent implements OnInit {
      this.storedTarget = event.target.value
      this.clear = true;
      this.page = 1;
-     this.filteredelements = this.elements.filter(result =>{                                 
+     /*this.filteredelements = this.elements.filter(result =>{                                 
         return result.name?.replace(/[^a-zA-Z ]/g, "").match(event.target.value.replace(/[^a-zA-Z ]/g, "")) ||
           result.code?.replace(/[^a-zA-Z ]/g, "").match(event.target.value.replace(/[^a-zA-Z ]/g, ""));
       });
-     this.finalelements = this.filteredelements;
+     this.finalelements = this.filteredelements;*/
+     this.filteredelements = this.finalelements.filter(result =>{                                 
+      return result.name?.replace(/[^a-zA-Z ]/g, "").match(event.target.value.replace(/[^a-zA-Z ]/g, "")) ||
+        result.code?.replace(/[^a-zA-Z ]/g, "").match(event.target.value.replace(/[^a-zA-Z ]/g, ""));
+      });   
+      this.finalelements = this.filteredelements;
      this.totalrecords = this.finalelements.length;
   }
   
@@ -247,6 +252,13 @@ export class ItemMasterRegisterComponent implements OnInit {
     this.filteredelements = this.elements;
     this.finalelements = this.filteredelements;
     this.totalrecords = this.finalelements.length
+    if(Array.isArray(this.finalelements) && this.finalelements.length)
+    {
+      this.filteredelements = this.filterElements(this._elementname);
+      this.finalelements = this.filteredelements
+      this.page = 1
+      this.totalrecords = this.finalelements.length
+    }
  }
 
   rowDelete(i:any){
