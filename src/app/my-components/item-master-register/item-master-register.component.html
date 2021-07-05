@@ -109,8 +109,7 @@
             
             <div class="btns">
                 <div id="hide-print">
-                    <button printSectionId="to-print" [useExistingCss]="true" ngxPrint
-                        type="button">Print</button>
+                    <button printSectionId="to-print" [useExistingCss]="true" ngxPrint type="button">Print</button>
                 </div>
                 <div>
                     <button (click)="downloadPdf()" type="button" style="margin-left: 6px;">Download</button>
@@ -165,7 +164,7 @@
             <div class="table-responsive">
                 <table class="table table-borderless table-sm table-striped table-hover" style="width: 97%;" id="export">
                     <thead>
-                        <tr style="font-family: system-ui; background-color: var(--primary); color: white;">
+                        <tr style=" background-color: var(--primary); color: white;">
                             <th class="disappear"> </th>
                             <th class="disappear"> </th>
                             <th>Sr. No.</th>
@@ -184,8 +183,7 @@
                             itemsPerPage: pageSize,
                             currentPage: page,
                             totalItems: totalrecords} ;  let ndx = index  " >
-                            <td class="disappear"><a (click)="sendData()" routerLink="/item-master/{{item.id}}">Edit</a>
-                            </td>
+                            <td class="disappear"><a (click)="sendData()" routerLink="/item-master/{{item.id}}"><img src="assets/edit.svg" style="height: 21px; width: 21px;"></a></td>
                             <td class="disappear"><img src="assets/delete.svg" (click)="rowDelete(ndx+1)"
                                     style="height: 23px; width: 23px;"></td>
                             <td scope="row">{{item.id}}</td>
@@ -203,7 +201,7 @@
                     <tr>No Results Found</tr>
                 </div>
                 <div class="pagination-center"><pagination-controls  id="pagination"
-                    (pageChange)="page = $event" >
+                    (pageChange)="page = $event">
                     </pagination-controls>
                 </div>
             </div>

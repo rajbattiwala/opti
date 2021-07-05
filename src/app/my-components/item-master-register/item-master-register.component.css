@@ -217,7 +217,7 @@ label{
 }
 
 @media print {
-    .disappear{
+    .disappear, .pagination-center{
         display: none;
     }
 }

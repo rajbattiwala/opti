@@ -214,7 +214,29 @@ export class ItemMasterRegisterComponent implements OnInit {
         category: "SAP - 01",
         cost: "15",
         stock: "5000"
-      }  
+      },
+      {
+        id: undefined,
+        state: true,
+        name: "SMO SCRAP",
+        code: "SMO SCRAP",
+        type: "scrap",
+        yield: "83",
+        category: "BAT-B-NI + MO",
+        cost: "2",
+        stock: "19990"
+      },
+      {
+        id: undefined,
+        state: true,
+        name: "XM19 SC",
+        code: "XM19 SC",
+        type: "scrap",
+        yield: "97",
+        category: "BAT-B-SS-316",
+        cost: "120",
+        stock: "2790"
+      }
     ]
 
     /*--------- Data which we get from Item-master using Service, stores in SharedElements 
