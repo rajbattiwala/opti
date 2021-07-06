@@ -29,25 +29,60 @@
             <div class="input-elements">
                 <div class="input-names" id="radioTop">
                     <div class="radio">
-                        <div class="radio-individual">
+                        <!--<div class="radio-individual">
                             <input (click)="show()" type="radio" id="scrap" name="categories" value="scrap" [(ngModel)]="data.type">
                             <label for="scrap">Scrap</label><br>
-                        </div>
+                        </div>-->
                         <div class="radio-individual">
+                            <label class="rad-label">
+                                <input (click)="show()" type="radio" class="rad-input" id="scrap" name="categories" value="scrap" [(ngModel)]="data.type">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">Scrap</div>
+                            </label>
+                        </div>
+                        <!--<div class="radio-individual">
                             <input (click)="show()" type="radio" id="turning" name="categories" value="turning" [(ngModel)]="data.type">
                             <label for="turning">Turning</label><br>
-                        </div>
+                        </div>-->
                         <div class="radio-individual">
+                            <label class="rad-label">
+                                <input (click)="show()" type="radio" class="rad-input" id="turning" name="categories" value="turning" [(ngModel)]="data.type">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">Turning</div>
+                            </label>
+                        </div>
+                        <!--<div class="radio-individual">
                             <input (click)="show()" type="radio" id="ferroalloy" name="categories" value="ferroalloy" [(ngModel)]="data.type">
                             <label for="ferroalloy">Ferroalloy</label><br>
-                        </div>
+                        </div>-->
                         <div class="radio-individual">
+                            <label class="rad-label">
+                                <input (click)="show()" type="radio" class="rad-input" id="ferroalloy" name="categories" value="ferroalloy" [(ngModel)]="data.type">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">Ferroalloy</div>
+                            </label>
+                        </div>
+                        <!--<div class="radio-individual">
                             <input (click)="show()" type="radio" id="returns" name="categories" value="returns" [(ngModel)]="data.type">
                             <label for="returns">Returns</label><br>
-                        </div>
+                        </div>-->
                         <div class="radio-individual">
+                            <label class="rad-label">
+                                <input (click)="show()" type="radio" class="rad-input" id="returns" name="categories" value="returns" [(ngModel)]="data.type">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">Returns</div>
+                            </label>
+                        </div>
+                        <!--<div class="radio-individual">
                             <input (click)="hider()" type="radio" id="deoxident" name="categories" value="deoxident" [(ngModel)]="data.type">
                             <label for="deoxident">DeOxident</label><br>
+                        </div>-->
+                        <div class="radio-individual">
+                            <label class="rad-label">
+                                <input (click)="hider()" type="radio" class="rad-input" id="deoxident" name="categories" value="deoxident" [(ngModel)]="data.type">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">DeOxident</div>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -62,13 +97,21 @@
                     <input class="form-control" type="number" placeholder="Enter Yield in %" required name="yield" [(ngModel)]="data.yield">
                 </div>
                 <div class="offsetting"> 
-                    <div *ngIf="hideMe" class="radio-individual">
+                    <!--<div *ngIf="hideMe" class="check-individual">
                         <input type="checkbox" id="exclude-weight" name="excludeweight" value="excludeweight">
                         <label for="exclude-weight">Exclude in Weight</label><br>
+                    </div>-->
+                    <div *ngIf="hideMe" class="check-individual">
+                        <input id="exclude-weight" class="checkbox-custom" name="excludeweight" type="checkbox" value="excludeweight">
+                        <label for="exclude-weight" class="checkbox-custom-label">Exclude in Weight</label>
                     </div>
-                    <div class="radio-individual">
+                    <!--<div class="check-individual">
                         <input (click)="selection()" type="checkbox" id="consumed-unit" name="consumedunit" value="consumedunit">
                         <label for="consumed-unit">Consumed as Whole unit</label><br>
+                    </div>-->
+                    <div class="check-individual">
+                        <input (click)="selection()" class="checkbox-custom" type="checkbox" id="consumed-unit" name="consumedunit" value="consumedunit">
+                        <label for="consumed-unit" class="checkbox-custom-label">Consumed as Whole unit</label>
                     </div>
                 </div>
                 <div *ngIf="selected" class="input-names"> 

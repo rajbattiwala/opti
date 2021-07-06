@@ -69,6 +69,7 @@ a{
 
 .left{
     width: 50%;
+    max-width: 360px;
 }
 
 .right{
@@ -93,49 +94,186 @@ a{
 
 .input-names{
     margin-top: 8px;
-    margin-right: 2em;
     width: 90%;
+    height: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     max-width: 21em;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
+    min-height: 30px;
 }
 
 .input-elements{
     display: flex;
     flex-wrap: wrap;
     padding-top: 1em;
+    max-width: 566px;
 }
 
 .form-control{
     width: 60%;
     height: 26px;
+    border-radius: 0;
+    font-size: 13px;
     padding: 4px 5px;
-    margin: 4px 0;
     display: flex;
-    border: 1px solid var(--darksecondary);
-    /*border-radius: 16px;*/
     box-sizing: border-box;
+    border: 1px solid rgba(109 127 134 / 60%);
+}
+
+.form-control:focus{
+    box-shadow: inset 0px 0px 0px 2px rgb(26 142 253 / 13%);
+    border: 1px solid rgba(26 142 253 / 65%) !important;
 }
 
 input:focus{
     outline: none;
-    border: 1.8px solid var(--primary);
+    border: 1px solid rgba(26 142 253 / 35%) !important;
+}
+
+input::placeholder{
+    color: rgba(109 127 134 / 58%);
 }
 
 label {
     color: var(--tertiary);
-    font-size: 1.1em;
-    padding-top: 0.6em;
-    padding-left: 2px;
-    padding-right: 1em;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+label[for="scrap"],label[for="turning"],label[for="ferroalloy"], label[for="returns"], label[for="deoxident"] {
+    margin-left: 6px;
 }
 
 .radio{
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
+    padding-bottom: 0.6em;
+}
+
+.radio-individual {
+    width: 33%;
+    min-width: 6.8em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+
+.rad-label {
+    display: flex;
+    align-items: center;
+
+    border-radius: 100px;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.rad-label:hover {
+    padding: 0 4px 0 2px;
+    filter: blur(20%);
+    background: rgba(26 192 253 / 7%);
+}
+
+.rad-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.rad-design {
+    width: 14px;
+    height: 14px;
+    border-radius: 100px;
+    background: linear-gradient(to right bottom, rgba(26 192 253), var(--darkprimary));
+    position: relative;
+}
+
+.rad-design::before {
+    content: '';
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: hsl(0, 0%, 100%);
+    border: 1px solid rgba(109 127 134 / 60%);
+    transform: scale(1.1);
+    transition: .3s;
+    }
+
+    .rad-input:checked+.rad-design::before {
+    transform: scale(0);
+}
+
+.rad-text {
+    margin-left: 6px;
+    transition: .3s;
+}
+
+.rad-input:checked~.rad-text {
+    color: var(--tertiary);
+}
+ 
+.check-individual {
+    width: 100%;
+    min-width: 14em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.checkbox-custom {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkbox-custom, .checkbox-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.checkbox-custom + .checkbox-custom-label:before {
+    content: '';
+    background: #fff;
+    border-radius: 5px;
+    border: 1.4px solid rgba(109 127 134 / 60%);
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+    transition: 0.008s ease-in-out;
+}
+
+.checkbox-custom:checked + .checkbox-custom-label:before {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 15px;
+    border: solid var(--darkprimary);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    border-radius: 0px;
+    margin: 0px 13px 2px 5px;
+    transition-timing-function: ease-in-out;
+    transition: ease-in-out;
 }
 
 input[type=number]::-webkit-inner-spin-button {
@@ -161,18 +299,20 @@ table {
 }
 
 td, th {
-    border: 1px solid var(--darksecondary);
+    border: 1px solid rgba(109 127 134 / 60%);
     width: 4.5em;
     text-align: center;
+    padding: 0;
 }
 
 th{
     background-color: var(--secondary);
+    font-weight: 550;
 }
 
 input.value-control{
     height: 21px;
-    width: 66px;
+    width: 100%;
     display: flex;
     border: none;
     padding: 0;
@@ -221,12 +361,7 @@ button {
     }
 }
 
-@media (max-width: 460px) {
-    
-    label[for="purchasecost"],label[for="unitweight"],label[for="itemname"], label[for="itemcode"] {
-        max-width: 2em;
-        padding-top: 0;
-    }    
+@media (max-width: 460px) {   
     #pur, #unit{
         height: 26px;
     }
@@ -247,9 +382,23 @@ button {
         height: -webkit-fit-content;
         height: -moz-fit-content;
         height: fit-content;
+        min-height: 30px;
     }
 }
 
+@media (max-width: 360px) {
+    label[for="purchasecost"] {
+        max-width: 2em;
+    } 
+    .all-content {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+    .head{
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+}
 @-moz-document url-prefix() {
     #mozilla {
         display: block;
@@ -258,3 +407,4 @@ button {
         min-width: 270px;
     }
 }
+ 
