@@ -13,6 +13,7 @@ export class ItemMasterComponent implements OnInit {
   hideMe: boolean = true;
   selected: boolean = false;
   tempid: any
+  isChanged: boolean = false;
 
   data = new elements
   alldata: Array<elements> = [];
@@ -167,6 +168,12 @@ export class ItemMasterComponent implements OnInit {
   }
 
   show(){
+    if(this.hideMe == false){
+      this.isChanged = true
+      setTimeout(() => {
+        this.isChanged = false
+      }, 1000);
+    }
     this.hideMe = true;
   }
 

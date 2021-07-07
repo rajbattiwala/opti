@@ -178,9 +178,9 @@ label[for="scrap"],label[for="turning"],label[for="ferroalloy"], label[for="retu
 }
 
 .rad-label:hover {
-    padding: 0 4px 0 2px;
-    filter: blur(20%);
-    background: rgba(26 192 253 / 7%);
+    color: rgba(29 38 43 / 80%);
+    transition: ease-in-out;
+    transition-duration: 0.01ms;
 }
 
 .rad-input {
@@ -289,6 +289,29 @@ input[type=number]::-webkit-inner-spin-button {
    padding-top: 1.1em;
 }
 
+.highlight{
+    transition: background 2s ease-in-out;
+    border-radius: 4px;
+    width: 50%;
+
+    background: linear-gradient(-45deg, #e5faffb9, #d4eaff, #cdf2ffc4, #d4eaff);
+	background-size: 400% 400%;
+	animation: gradient 1s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
 #yield-selected{
     width: 100%;
     padding-top: 0;
@@ -330,15 +353,17 @@ input.value-control{
 button {
     background-image: linear-gradient(to bottom right, var(--primary), var(--darkprimary));
     color: white;
-    padding: 12px 12px;
     margin: 1rem 0;
     border: none;
-    border-radius: 0.8rem;
+    border-radius: 4px;
     cursor: pointer;
     outline: none;
     font-size: 0.8rem;
     font-weight: bold;
-    width: 20%;
+    width: 30%;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 4px 4px;
 }
   
   button:hover {

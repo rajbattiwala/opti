@@ -101,7 +101,7 @@
                         <input type="checkbox" id="exclude-weight" name="excludeweight" value="excludeweight">
                         <label for="exclude-weight">Exclude in Weight</label><br>
                     </div>-->
-                    <div *ngIf="hideMe" class="check-individual">
+                    <div *ngIf="hideMe" class="check-individual" [ngClass]="{'highlight': isChanged}">
                         <input id="exclude-weight" class="checkbox-custom" name="excludeweight" type="checkbox" value="excludeweight">
                         <label for="exclude-weight" class="checkbox-custom-label">Exclude in Weight</label>
                     </div>
