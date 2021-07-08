@@ -128,7 +128,7 @@ a {
     .hamburger {
         display: block;
         cursor: pointer;
-        z-index: 1001;
+        z-index: 11;
     }
 
     .hamburger.active .bar:nth-child(2) {

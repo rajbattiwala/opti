@@ -361,6 +361,7 @@ button {
     font-size: 0.8rem;
     font-weight: bold;
     width: 30%;
+    max-width: 10em;
     font-size: 1em;
     font-weight: 500;
     padding: 4px 4px;

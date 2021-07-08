@@ -206,6 +206,16 @@
                 </div>
             </div>
         </div>
+
+        <div class="form-bg" id="box-view" style="position: relative; z-index: 1000;">
+            <div class="box-bg" *ngFor="let item of finalelements">
+                <div class="box">
+                    <h2>{{item.name}}</h2>
+                    <p>Item Code: {{item.code}}<br>Purchase Cost: {{item.cost}}</p>
+                </div>
+            </div>
+        </div>
+
     </div>
     <div style="position: absolute; width: 780px;
         height: 340px; right: 0px;
