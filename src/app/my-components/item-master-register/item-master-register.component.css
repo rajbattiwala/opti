@@ -306,9 +306,21 @@ label{
         font-size: 20px;
     }
 
+    .odd > p, .even > p {
+        color: var(--tertiary);
+    }
+
+    .odd > h3, .even > h3 {
+        color: var(--darktertiary);
+    }
+
     .close{
         outline: none;
         text-shadow: none;
+    }
+
+    .close:not(:disabled):not(.disabled):focus{
+        opacity: 1;
     }
 
     .data-set{

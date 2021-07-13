@@ -19,6 +19,10 @@ b{
     font-weight: 500;
 }
 
+label, p {
+    color: var(--tertiary);
+}
+
 input[type=text], input[type=password] {
     width: 50%;
     padding: 8px 20px;
@@ -80,11 +84,11 @@ a{
 
 
     input[type=text], input[type=password] {
-        width: 60%;
+        width: 67%;
         padding: 12px 20px;
         margin: 8px 0;
         display: block;
-        border: 3px solid var(--primary);
+        border: 2px solid var(--primary);
         border-radius: 16px;
         box-sizing: border-box;
     }
@@ -99,6 +103,11 @@ a{
     .btn-center{
         display: flex;
         justify-content: center;
+        height: 6em !important;
+    }
+
+    #login {
+        font-weight: 500;
     }
 
 }
