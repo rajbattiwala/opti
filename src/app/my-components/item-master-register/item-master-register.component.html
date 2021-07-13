@@ -184,8 +184,7 @@
                             currentPage: page,
                             totalItems: totalrecords} ;  let ndx = index  " >
                             <td class="disappear"><a (click)="sendData()" routerLink="/item-master/{{item.id}}"><img src="assets/edit.svg" style="height: 21px; width: 21px;"></a></td>
-                            <td class="disappear"><img src="assets/delete.svg" (click)="rowDelete(ndx+1)"
-                                    style="height: 23px; width: 23px;"></td>
+                            <td class="disappear"><img src="assets/delete.svg" (click)="rowDelete(ndx+1)" style="height: 23px; width: 23px;"></td>
                             <td scope="row">{{item.id}}</td>
                             <td>{{item.name}}</td>
                             <td>{{item.code}}</td>
@@ -208,10 +207,76 @@
         </div>
 
         <div class="form-bg" id="box-view" style="position: relative; z-index: 1000;">
-            <div class="box-bg" *ngFor="let item of finalelements">
+            <div class="box-bg" *ngFor="let item of finalelements;  let ndx = index ">
                 <div class="box">
                     <h2>{{item.name}}</h2>
-                    <p>Item Code: {{item.code}}<br>Purchase Cost: {{item.cost}}</p>
+                    <div class="item-code">
+                        <h3>Item Code</h3>
+                        <p>{{item.code}}</p><br>
+                    </div>
+                    <div class="pur-cost">
+                        <h3>Purchase Cost</h3> 
+                        <p>₹ {{item.cost}}</p>
+                    </div>
+                    <div class="links">
+                        <a (click)="sendData()" routerLink="/item-master/{{item.id}}">
+                            <img src="assets/edit.svg">
+                            <span>Edit</span>
+                        </a>
+                        <a (click)="rowDelete(ndx+1)">
+                            <img src="assets/delete.svg">
+                            <span>Delete</span>
+                        </a>
+
+                        <ng-template #content let-modal>
+                            <div class="modal-header">
+                              <h2 class="modal-title">{{item.name}}</h2>
+                              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="data-set">
+                                    <div class="odd">
+                                        <h3>Item Code</h3>
+                                        <p>{{item.code}}</p>
+                                    </div>
+                                    <div class="even">
+                                        <h3>Purchase Cost</h3> 
+                                        <p>₹ {{item.cost}}</p>
+                                    </div>
+                                </div>
+                                <div class="data-set">
+                                    <div class="odd">
+                                        <h3>Material Type</h3> 
+                                        <p>{{item.type}}</p>
+                                    </div>
+                                    <div class="even">
+                                        <h3>Category</h3> 
+                                        <p>{{item.category}}</p>
+                                    </div>
+                                </div>
+                                <div class="data-set">
+                                    <div class="odd">
+                                        <h3>Yield</h3> 
+                                        <p>{{item.yield}}%</p>
+                                    </div>
+                                    <div class="even">
+                                        <h3>Stock</h3> 
+                                        <p>{{item.stock}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-light" (click)="modal.close('Close click')" style="font-weight: 500;">Close</button>
+                            </div>
+                        </ng-template>
+
+                        <a (click)="openVerticallyCentered(content)">
+                            <span id="viewmore">View More</span>
+                            <img src="assets/arrow_right.svg" id="arrow">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

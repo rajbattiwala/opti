@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewEncapsulation } from '@angular/core';
 import { elements } from '../../../assets/elements.model';
 import { ItemdataService } from 'src/app/service/itemdata.service';
 import autoTable from 'jspdf-autotable'
@@ -8,6 +8,7 @@ import { Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import jsPDF from 'jspdf'
 import 'jspdf-autotable';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -17,7 +18,7 @@ import 'jspdf-autotable';
 })
 export class ItemMasterRegisterComponent implements OnInit {
 
-  constructor(private content: ItemdataService, private contentEdit: ItemdataService , private _router: Router, @Inject(DOCUMENT) private document: Document) { }
+  constructor(private content: ItemdataService, private contentEdit: ItemdataService , private _router: Router, @Inject(DOCUMENT) private document: Document, config: NgbModalConfig, private modalService: NgbModal) { }
   elements: elements[] = []; 
   filteredelements: elements[] = [];
   finalelements: elements[] = [];
@@ -322,6 +323,14 @@ export class ItemMasterRegisterComponent implements OnInit {
 
   sendData(){
     this.contentEdit.getCurrentData(this.finalelements)
+  }
+
+  openWindowCustomClass(content:any) {
+    this.modalService.open(content, { windowClass: 'dark-modal' });
+  }
+
+  openVerticallyCentered(content:any) {
+    this.modalService.open(content, { centered: true , backdropClass: 'dark-blue-backdrop'});
   }
 
 }
