@@ -10,8 +10,6 @@
     width: 100%;
     border-radius: 1em;
     padding: 1em 1em 0 1em;
-    /*max-width: 70em;
-    border-radius: 1rem 1rem;*/    
     margin-bottom: 2em;
     margin-top: 1em;
     box-shadow: 0.4rem 0.4rem 1rem rgb(122 191 255 / 22%), 
@@ -25,6 +23,8 @@
 }
 
 img{
+    height: 26px;
+    width: 26px;
     max-height: 26px;
     max-width: 26px;
     cursor: pointer;
@@ -91,7 +91,6 @@ input[name="search"]:focus, select:focus{
 }
 
 .icon{
-    max-height: 26px;
     padding-left: 10px;
     display: inline-flex;
 }
@@ -186,6 +185,15 @@ label{
     vertical-align: middle;
 }
 
+.table td {
+    color: var(--darktertiary);
+}
+
+.table th {
+    font-weight: 500;
+    text-shadow: none;
+}
+
 .table-container{
     display: flex;
     flex-wrap: wrap;
@@ -198,6 +206,17 @@ label{
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #dbefff;
+}
+
+.my-pagination /deep/ .ngx-pagination {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    color: var(--tertiary) !important;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: var(--primary);
+    border-radius: 4px;
 }
 
 .hidden{
@@ -257,6 +276,12 @@ label{
 }
 
 @media (max-width: 480px) {
+    .allelements{
+        width: 97%;
+    }
+    .searchbar{
+        width: 96%;
+    }
     #hide-print{
         display: none;
     }
@@ -281,7 +306,7 @@ label{
     .box {
         border-radius: 5px;
         padding: 16px;
-        background-image: linear-gradient(159deg, rgba(245 251 255 / 30%) 42%, rgba(150 217 255/ 22%));
+        background-image: linear-gradient(159deg, rgba(245 251 255 / 49%) 44%, rgba(150 217 255/ 6%));
     }
 
     .box-bg{
@@ -294,16 +319,38 @@ label{
         box-shadow: 3px 3px 6px 0px rgb(26 153 255 / 16%), 1px 1px 2px rgb(26 152 255 / 20%);
     }
 
-    .box > h2 , .modal-title {
-        color: var(--tertiary);
+    .box > h2 , .modal-title , .chem-data > h2{
         font-size: 16px;
         text-align: left;
         margin: 0 0 4px 0;
-        font-weight: 500;
+        color: var(--tertiary);
+        font-weight: 500;        
+    }
+
+    .box > h2 {
+        font-weight: 600;
+        background: linear-gradient(45deg, var(--tertiary) 0%, var(--darktertiary)53%);
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .line {
+        border-bottom: 1px solid rgba(42 79 102 / 30%);
+        margin-bottom: 10px;
+    }
+
+    .group {
+        width: 100%;
     }
 
     .modal-title {
         font-size: 20px;
+    }
+
+    .chem-data > h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
     }
 
     .odd > p, .even > p {
@@ -352,22 +399,79 @@ label{
         font-weight: 500;
     }
 
-    .item-code > p, .pur-cost > p{
+    .item-code > p, .pur-cost > p , .chem > p {
         margin: 0;
+    }
+
+    .bg-img {
+        background-image: url(/assets/chemistry.svg);
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        opacity: 0.9;
+        overflow: hidden;
+        transform: rotate(9deg);
+        top: 56px;
+        z-index: -1;
+    }
+
+    .chem-data{
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        padding-top: 16px;
+        border-top: 1px solid #dee2e6;
+        width: 100%;
+    }
+
+    .all-data {
+        display: flex;
+        gap: 1em;
+        flex-wrap: wrap;
+    }
+
+    .chem {
+        display: flex;
+        text-align: center;
+        padding: 4px;
+        width: 4em;
+        flex-direction: column;
+        border: 1px solid rgba(26 153 255 / 30%);
+        border-radius: 4px;
+        background-color: #fff;
+        box-shadow: 1px 1px 2px 1px rgb(26 153 255 / 20%);
+    }
+
+    .logo > p {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary);
+        opacity: 0.4;
+        margin: 4px 0 6px 0;
+    }
+
+    .line {
+        border-top: 1px rgba(26 153 255 / 20%);
+        width: 100%;
+    }
+
+    .chem > p {
+        color: var(--tertiary);
     }
 
     .links {
         width: 100%;
-        display: grid;
-        grid-template-columns: 22% 40% 30%;
-        grid-gap: 4%;
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+        min-width: 3em;
     }
 
     .links > a{
         display: flex;
         cursor: pointer;
         width: fit-content;
-        color: var(--primary);
+        color: rgba(42 79 102 / 80%);
     }
 
     .links > a > img {
@@ -382,19 +486,30 @@ label{
     }
 
     #arrow{
-        height: 19px;
-        width: 19px;
+        margin: 0;
+    }
+
+    .bottombar {
+        overflow: hidden;
+        background: linear-gradient(151deg, var(--primary), var(--darkprimary));
+        position: fixed;
+        bottom: 3%;
+        right: 5%;
+        z-index: 1000;
+        border-radius: 50%;
+        padding: 1.3em;
+        box-shadow: 1px 1px 6px 1px rgb(26 153 255 / 30%);
     }
 }
 
 @media (min-width: 481px) {
-    #box-view{
+    #box-view {
         display: none;
     }
 }
 
-@media (max-width: 340px) {
-    .pur-cost{
+@media (max-width: 307px) {
+    .pur-cost {
         float: left;
         margin-bottom: 1em;
     }

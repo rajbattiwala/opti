@@ -49,7 +49,7 @@ h2{
     flex-direction: row-reverse;
 }
 
-a{
+#reg-btn{
     text-decoration: none;
     color: white;
     font-size: 1em;
@@ -184,6 +184,11 @@ label[for="scrap"],label[for="turning"],label[for="ferroalloy"], label[for="retu
     transition-duration: 0.01ms;
 }
 
+.rad-label:focus-within{
+    font-weight: 500;
+    text-decoration: 1px underline rgba(26 192 253 / 60%);
+}
+
 .rad-input {
     position: absolute;
     left: 0;
@@ -212,9 +217,9 @@ label[for="scrap"],label[for="turning"],label[for="ferroalloy"], label[for="retu
     border: 1px solid rgba(109 127 134 / 60%);
     transform: scale(1.1);
     transition: .3s;
-    }
+}
 
-    .rad-input:checked+.rad-design::before {
+.rad-input:checked+.rad-design::before {
     transform: scale(0);
 }
 
@@ -233,6 +238,11 @@ label[for="scrap"],label[for="turning"],label[for="ferroalloy"], label[for="retu
     display: flex;
     align-items: center;
     margin-bottom: 4px;
+}
+
+.check-individual:focus-within {
+    font-weight: 500;
+    text-decoration: 1px underline rgba(26 192 253 / 60%);
 }
 
 .checkbox-custom {
@@ -370,11 +380,14 @@ button {
     padding: 4px 4px;
 }
   
-  button:hover {
+button:hover {
     box-shadow: 3px 1px 1rem rgba(26, 142, 253, 0.3);
     transition: ease-in-out;
 }
 
+.bottombar {
+    display: none;
+}
 
 @media (max-width: 880px) {
     .left{
@@ -398,10 +411,9 @@ button {
         padding-top: 0;
     }
     .a-right{
-        display: flex;
-        justify-content: center;
+        display: none;
     }
-    a{
+    #reg-btn{
         width: 50%;
         margin-top: 10px;
     }
@@ -412,6 +424,22 @@ button {
         height: -moz-fit-content;
         height: fit-content;
         min-height: 30px;
+    }
+    .bottombar {
+        display: block;
+        overflow: hidden;
+        background: linear-gradient(151deg, var(--primary), var(--darkprimary));
+        position: fixed;
+        bottom: 3%;
+        right: 5%;
+        z-index: 1000;
+        border-radius: 50%;
+        padding: 1em;
+        box-shadow: 1px 1px 6px 1px rgb(26 153 255 / 30%);
+    }
+    .registericon {
+        height: 35px;
+        width: 35px;
     }
 }
 

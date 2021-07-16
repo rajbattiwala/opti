@@ -36,6 +36,8 @@ export class ItemMasterRegisterComponent implements OnInit {
   itemSelect:any
   codeSelect:any
   storedTarget:any
+
+  additional:any
   
   downloadPdf(){
     $("#export").find('tr td:nth-child(1)').hide()
@@ -99,6 +101,22 @@ export class ItemMasterRegisterComponent implements OnInit {
 
   
   ngOnInit(): void {
+
+    window.onscroll = () => {
+      let windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+      let body = document.body, html = document.documentElement;
+      let docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+      let windowBottom = windowHeight + window.pageYOffset;
+      if (windowBottom >= docHeight - 100) {
+        let el = document.querySelector(".bottombar") as HTMLElement;
+        el.style.display = "none"
+      }
+      else if (windowBottom < docHeight) {
+        let el = document.querySelector(".bottombar") as HTMLElement;
+        el.style.display = "block"
+      }
+   };
+    
     /*--------- content (argument in constructor) has the data passed by Service  
       ----------is copied to sharedElements & logging it to check------------------------------------ */ 
 
@@ -239,6 +257,45 @@ export class ItemMasterRegisterComponent implements OnInit {
         stock: "2790"
       }
     ]
+
+    this.additional = [
+      {
+        name:"C",
+        value:"0.4"
+      },
+      {
+        name:"Si",
+        value:"0.2"
+      },
+      {
+        name:"Mn",
+        value:"0.05"
+      },
+      {
+        name:"P",
+        value:"0.01"
+      },
+      {
+        name:"S",
+        value:"0.03"
+      },
+      {
+        name:"Cr",
+        value:"0.2"
+      },
+      {
+        name:"Ni",
+        value:"0.005"
+      },
+      {
+        name:"Mo",
+        value:"0.007"
+      },
+      {
+        name:"Cu",
+        value:"0.05"
+      }
+    ];
 
     /*--------- Data which we get from Item-master using Service, stores in SharedElements 
       ----------is copied to allElements along with default data------------------- */ 

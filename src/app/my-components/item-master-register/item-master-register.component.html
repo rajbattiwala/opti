@@ -104,14 +104,14 @@
                 <input type="text" placeholder="Search by Keyword.." [(ngModel)]="elementname" name="search"
                     autocomplete="off">
                 <img src="assets/search.svg">
-                <div class="icon"><img src="assets/filter.png" (click)="onFocus()"></div>
+                <div class="icon"><img src="assets/filter.svg" (click)="onFocus()"></div>
             </div>
             
             <div class="btns">
                 <div id="hide-print">
                     <button printSectionId="to-print" [useExistingCss]="true" ngxPrint type="button">Print</button>
                 </div>
-                <div>
+                <div id="hide-print">
                     <button (click)="downloadPdf()" type="button" style="margin-left: 6px;">Download</button>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                 <div [ngClass]="finalelements.length > 0 ? 'hidden': 'visible'">
                     <tr>No Results Found</tr>
                 </div>
-                <div class="pagination-center"><pagination-controls  id="pagination"
+                <div class="pagination-center my-pagination"><pagination-controls  id="pagination"
                     (pageChange)="page = $event">
                     </pagination-controls>
                 </div>
@@ -211,24 +211,27 @@
             <div class="box-bg" *ngFor="let item of finalelements;  let ndx = index ">
                 <div class="box">
                     <h2>{{item.name}}</h2>
-                    <div class="item-code">
-                        <h3>Item Code</h3>
-                        <p>{{item.code}}</p><br>
-                    </div>
-                    <div class="pur-cost">
-                        <h3>Purchase Cost</h3> 
-                        <p>₹ {{item.cost}}</p>
+                    <div class="line"></div>
+                    <div class="group">
+                        <div class="item-code">
+                            <h3>Item Code</h3>
+                            <p>{{item.code}}</p><br>
+                        </div>
+                        <div class="pur-cost">
+                            <h3>Purchase Cost</h3> 
+                            <p>₹ {{item.cost}}</p>
+                        </div>
                     </div>
                     <div class="links">
                         <a (click)="sendData()" routerLink="/item-master/{{item.id}}">
                             <img src="assets/edit.svg">
                             <span>Edit</span>
                         </a>
-                        <a (click)="rowDelete(ndx+1)">
+                        <a (click)="rowDelete(ndx+1)" style="margin-right: 15%;">
                             <img src="assets/delete.svg">
                             <span>Delete</span>
                         </a>
-
+                        
                         <ng-template #content let-modal>
                             <div class="modal-header">
                               <h2 class="modal-title">{{item.name}}</h2>
@@ -267,13 +270,24 @@
                                         <p>{{item.stock}}</p>
                                     </div>
                                 </div>
+                                <div class="chem-data">
+                                    <h2>CHEMISTRY</h2>   
+                                    <div class="bg-img"></div>                          
+                                    <div class="all-data">
+                                        <div class="chem" *ngFor = "let element of additional">
+                                            <div class="logo"><p>{{element.name}}</p></div>
+                                            <div class="line"></div>
+                                            <p>{{element.value}}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-light" (click)="modal.close('Close click')" style="font-weight: 500;">Close</button>
                             </div>
                         </ng-template>
 
-                        <a (click)="openVerticallyCentered(content)">
+                        <a (click)="openVerticallyCentered(content)" style="align-items: center;">
                             <span id="viewmore">View More</span>
                             <img src="assets/arrow_right.svg" id="arrow">
                         </a>
@@ -284,7 +298,13 @@
                 <tr>No Results Found</tr>
             </div>
         </div>
-
+    </div>
+    <div class="bottombar">
+        <div class="downloadicon">
+            <a (click)="downloadPdf()">
+                <img src="assets/download.svg">
+            </a>
+        </div>
     </div>
     <div style="position: absolute; width: 780px;
         height: 340px; right: 0px;

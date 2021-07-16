@@ -5,7 +5,7 @@
             <h2>Purchase Item Master</h2>
             <div class="holder">
                 <div class="line"></div>
-                <div class="a-right"><a [routerLink]="['/item-master-register']" style="width: 8em;">Register</a></div>
+                <div class="a-right"><a id="reg-btn" [routerLink]="['/item-master-register']" style="width: 8em;">Register</a></div>
             </div>
         </div>
         <div class="all-content">
@@ -81,7 +81,7 @@
                             <label class="rad-label">
                                 <input (click)="hider()" type="radio" class="rad-input" id="deoxident" name="categories" value="deoxident" [(ngModel)]="data.type">
                                 <div class="rad-design"></div>
-                                <div class="rad-text">DeOxident</div>
+                                <div class="rad-text">DeOxidant</div>
                             </label>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                         <input (click)="selection()" type="checkbox" id="consumed-unit" name="consumedunit" value="consumedunit">
                         <label for="consumed-unit">Consumed as Whole unit</label><br>
                     </div>-->
-                    <div class="check-individual">
+                    <div class="check-individual" >
                         <input (click)="selection()" class="checkbox-custom" type="checkbox" id="consumed-unit" name="consumedunit" value="consumedunit">
                         <label for="consumed-unit" class="checkbox-custom-label">Consumed as Whole unit</label>
                     </div>
@@ -139,6 +139,13 @@
         </div>
     </div>
     </form>
+    <div class="bottombar">
+        <div class="registericon">
+            <a [routerLink]="['/item-master-register']">
+                <img src="assets/register.svg">
+            </a>
+        </div>
+    </div>
 
     <div style="position: absolute; width: 780px;
         height: 340px; right: 0px;

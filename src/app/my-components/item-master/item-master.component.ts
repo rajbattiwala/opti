@@ -143,6 +143,22 @@ export class ItemMasterComponent implements OnInit {
   gotelements: elements[] = [];
   ngOnInit(): void {
 
+    window.onscroll = () => {
+      let windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+      let body = document.body, html = document.documentElement;
+      let docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+      let windowBottom = windowHeight + window.pageYOffset;
+      if (windowBottom >= docHeight - 100) {
+        let el = document.querySelector(".bottombar") as HTMLElement;
+        el.style.display = "none"
+      }
+      else if (windowBottom < docHeight) {
+        let el = document.querySelector(".bottombar") as HTMLElement;
+        el.style.display = "block"
+      }
+   };
+
+
     //-------------Getting all items array from Item Master Register-----------------
     //--------------Getting id of element whose EDIT was clicked-----------------------
 

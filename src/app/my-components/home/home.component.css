@@ -44,14 +44,15 @@ a {
 }
 
 .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: fit-content;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 4em 7em 3em;
 }
 
-.nav-item {
+/*.nav-item {
     margin-left: 3em;
-}
+}*/
 
 .nav-link{
     font-size: 1.2em;
@@ -79,6 +80,8 @@ a {
 
 @media only screen and (max-width: 768px) {
     .nav-menu {
+        display: flex;
+        gap: 0;
         position: fixed;
         z-index: 2000;
         left: -100%;

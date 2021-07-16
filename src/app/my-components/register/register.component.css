@@ -8,7 +8,7 @@
     display: inline-table;
     height: auto;
     width: 90%;
-    max-width: 70em;
+    max-width: 64em;
     border-radius: 1rem 1rem;    
     margin-bottom: 2em;
     box-shadow: 0.4rem 0.4rem 1rem rgb(122 191 255 / 22%), 
@@ -43,6 +43,7 @@ button {
     font-size: 0.8rem;
     font-weight: 500;
     width: 30%;
+    max-width: 16em;
 }
   
   button:hover {
