@@ -15,7 +15,7 @@
     text-align: -webkit-center;
     text-align: -moz-center;
 }
-
+/*
 #land {
     display: none;
 }
@@ -24,7 +24,7 @@
     #port {
         display: none;
     }
-    #land {
+    #land {        
         background: var(--secondary);
         display: flex;
         flex-direction: column;
@@ -49,3 +49,28 @@
     }
 }
 
+*/
+
+#land {        
+    background: var(--secondary);
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.land-msg {
+    text-align: center;
+}
+.land-msg > img {
+    height: 80px;
+    width: 80px;
+}
+.land-msg > p {
+    color: var(--tertiary);
+    padding-top: 1em;
+    font-size: 18px;
+    font-weight: 500;
+}

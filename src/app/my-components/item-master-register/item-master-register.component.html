@@ -297,15 +297,28 @@
             <div [ngClass]="finalelements.length > 0 ? 'hidden': 'visible'">
                 <tr>No Results Found</tr>
             </div>
+            <div *ngIf="finalelements.length == 0 ; then thenBlock else elseBlock"></div>
         </div>
     </div>
-    <div class="bottombar">
-        <div class="downloadicon">
-            <a (click)="downloadPdf()">
-                <img src="assets/download.svg">
-            </a>
+    <ng-template #elseBlock>
+        <div class="bottombar">
+            <div class="downloadicon">
+                <a (click)="downloadPdf()">
+                    <img src="assets/download.svg">
+                </a>
+            </div>
         </div>
-    </div>
+    </ng-template>
+    <ng-template #thenBlock>
+        <div class="bottombar dis-able">
+            <div class="downloadicon">
+                <a>
+                    <img src="assets/download.svg">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+    
     <div style="position: absolute; width: 780px;
         height: 340px; right: 0px;
         bottom: 0px;

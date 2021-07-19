@@ -238,6 +238,12 @@ label{
     padding-right: 25.97px;
 }
 
+.dis-able {
+    opacity: 0.5;
+    filter: saturate(0.5);
+    pointer-events: none;
+}
+
 @media print {
     .disappear, .pagination-center{
         display: none;
