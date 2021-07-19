@@ -382,10 +382,6 @@ export class ItemMasterRegisterComponent implements OnInit {
     this.contentEdit.getCurrentData(this.finalelements)
   }
 
-  openWindowCustomClass(content:any) {
-    this.modalService.open(content, { windowClass: 'dark-modal' });
-  }
-
   openVerticallyCentered(content:any) {
     this.modalService.open(content, { centered: true , backdropClass: 'dark-blue-backdrop'});
   }

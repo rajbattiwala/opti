@@ -11,6 +11,8 @@ import { ItemMasterRegisterComponent } from './my-components/item-master-registe
 import { NgxPrintModule } from 'ngx-print';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -29,7 +31,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     NgxPrintModule,
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

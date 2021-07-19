@@ -11,12 +11,10 @@ html, body { height: 100%; }
     --tertiary: #2a4f66;
     --darktertiary: #192f3d;
     --darkgray: #12181b;
-  }
+}
   
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
 
 
 html, body { height: 100%; }
