@@ -1,0 +1,107 @@
+{
+  "configVersion": 1,
+  "timestamp": 1626686698120,
+  "index": "https://rajbattiwala.github.io/opti/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://rajbattiwala.github.io/opti/213.c0be3268f7ddf4560096.js",
+        "https://rajbattiwala.github.io/opti/33.97f9bfa86fed3562bdf9.js",
+        "https://rajbattiwala.github.io/opti/406.5760a5f7ac5d9cf0fbc5.js",
+        "https://rajbattiwala.github.io/opti/favicon.ico",
+        "https://rajbattiwala.github.io/opti/index.html",
+        "https://rajbattiwala.github.io/opti/main.006ed587954034de0a77.js",
+        "https://rajbattiwala.github.io/opti/manifest.webmanifest",
+        "https://rajbattiwala.github.io/opti/polyfills.e8d77825062f64aa066b.js",
+        "https://rajbattiwala.github.io/opti/runtime.d32405795b04f4284799.js",
+        "https://rajbattiwala.github.io/opti/styles.c60bce285565d356c9f1.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://rajbattiwala.github.io/opti/assets/arrow_right.svg",
+        "https://rajbattiwala.github.io/opti/assets/chemistry.svg",
+        "https://rajbattiwala.github.io/opti/assets/delete.svg",
+        "https://rajbattiwala.github.io/opti/assets/download.svg",
+        "https://rajbattiwala.github.io/opti/assets/edit.svg",
+        "https://rajbattiwala.github.io/opti/assets/elements.model.ts",
+        "https://rajbattiwala.github.io/opti/assets/filter.svg",
+        "https://rajbattiwala.github.io/opti/assets/icons/icon-128x128.png",
+        "https://rajbattiwala.github.io/opti/assets/icons/icon-144x144.png",
+        "https://rajbattiwala.github.io/opti/assets/icons/icon-152x152.png",
+        "https://rajbattiwala.github.io/opti/assets/icons/icon-192x192.png",
+        "https://rajbattiwala.github.io/opti/assets/icons/icon-384x384.png",
+        "https://rajbattiwala.github.io/opti/assets/icons/icon-512x512.png",
+        "https://rajbattiwala.github.io/opti/assets/icons/icon-72x72.png",
+        "https://rajbattiwala.github.io/opti/assets/icons/icon-96x96.png",
+        "https://rajbattiwala.github.io/opti/assets/orientation.svg",
+        "https://rajbattiwala.github.io/opti/assets/register.svg",
+        "https://rajbattiwala.github.io/opti/assets/search.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://rajbattiwala.github.io/opti/213.c0be3268f7ddf4560096.js": "8f665f65260d6a8fb19444f499d31f069515498b",
+    "https://rajbattiwala.github.io/opti/33.97f9bfa86fed3562bdf9.js": "615c0a36ceb16a340f3042c69eddc43125da0c05",
+    "https://rajbattiwala.github.io/opti/406.5760a5f7ac5d9cf0fbc5.js": "ba1557559554b8ff2fa0106ff96914c0195972e9",
+    "https://rajbattiwala.github.io/opti/assets/arrow_right.svg": "effa1365481d8cb78799349580aed5c9a879cf27",
+    "https://rajbattiwala.github.io/opti/assets/chemistry.svg": "94a5503117bc53fb18d0e92caaba5c38b89487fa",
+    "https://rajbattiwala.github.io/opti/assets/delete.svg": "9c990ebba6bbb748ff9a6d484bb180cb07d335e7",
+    "https://rajbattiwala.github.io/opti/assets/download.svg": "52c826d85e130a7ec440bbfea2c520f5a7db1704",
+    "https://rajbattiwala.github.io/opti/assets/edit.svg": "c02a0ac68e56f8bdac998f27955f0ff1ddc9800f",
+    "https://rajbattiwala.github.io/opti/assets/elements.model.ts": "9a4e1f0968b434de5683f2bce67282d7918c63ec",
+    "https://rajbattiwala.github.io/opti/assets/filter.svg": "457b389792f611eeb979f501628d5fd1f04b7fa8",
+    "https://rajbattiwala.github.io/opti/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://rajbattiwala.github.io/opti/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://rajbattiwala.github.io/opti/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://rajbattiwala.github.io/opti/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://rajbattiwala.github.io/opti/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://rajbattiwala.github.io/opti/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://rajbattiwala.github.io/opti/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://rajbattiwala.github.io/opti/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://rajbattiwala.github.io/opti/assets/orientation.svg": "f52f6560180aae52edf09fb61f406137466a5cb8",
+    "https://rajbattiwala.github.io/opti/assets/register.svg": "a4e6899f93a07bd1121bc63007c80dc4ac92d3f2",
+    "https://rajbattiwala.github.io/opti/assets/search.svg": "ca2e388a1e958699388300044d3282e4f5fda2cc",
+    "https://rajbattiwala.github.io/opti/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://rajbattiwala.github.io/opti/index.html": "0c35ce4f7c2c939e6152a2a61b7aed6e02c27cd0",
+    "https://rajbattiwala.github.io/opti/main.006ed587954034de0a77.js": "fa0da484c3949f830912b442504233ad00ed8e58",
+    "https://rajbattiwala.github.io/opti/manifest.webmanifest": "6e15e807b75c4234d837a01d81f7df470bfa6919",
+    "https://rajbattiwala.github.io/opti/polyfills.e8d77825062f64aa066b.js": "35838d7cd3321fa74f2763988e312f1cd01bfc06",
+    "https://rajbattiwala.github.io/opti/runtime.d32405795b04f4284799.js": "acc8d1b20569fab288b86f9f848f87f2ce89c655",
+    "https://rajbattiwala.github.io/opti/styles.c60bce285565d356c9f1.css": "663a848dc4af71c01d27c3bed243e127bfb49079"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
