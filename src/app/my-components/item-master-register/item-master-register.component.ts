@@ -21,7 +21,7 @@ export class ItemMasterRegisterComponent implements OnInit {
 
   constructor(private content: ItemdataService, private contentEdit: ItemdataService , 
     private _router: Router, @Inject(DOCUMENT) private document: Document, config: NgbModalConfig, 
-    private modalService: NgbModal, private connectionService:ConnectionService) { }
+    private modalService: NgbModal, private connectionService:ConnectionService) {    }
   elements: elements[] = []; 
   filteredelements: elements[] = [];
   finalelements: elements[] = [];
@@ -36,8 +36,9 @@ export class ItemMasterRegisterComponent implements OnInit {
   visible:boolean = false;
   clear:boolean = false;
 
-  isConnected = true;
+  isConnected = false;
   scrWidth:any;
+  scrWid:any;
 
   itemSelect:any
   codeSelect:any
@@ -108,6 +109,14 @@ export class ItemMasterRegisterComponent implements OnInit {
   
   ngOnInit(): void {
 
+    window.addEventListener("offline", function(){
+      console.log("offline..")
+      if(window.innerWidth <= 690){
+        let temp = document.querySelector('#connection') as HTMLElement
+        temp.style.display = "block"
+      }
+    });
+
     window.onscroll = () => {
       let windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
       let body = document.body, html = document.documentElement;
@@ -122,6 +131,7 @@ export class ItemMasterRegisterComponent implements OnInit {
         el.style.display = "block"
       }
    };
+
 
    this.connectionService.monitor().subscribe(isConnected => {
      this.scrWidth = window.innerWidth;
