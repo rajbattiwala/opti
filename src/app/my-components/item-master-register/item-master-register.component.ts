@@ -9,6 +9,7 @@ import { DOCUMENT } from '@angular/common';
 import jsPDF from 'jspdf'
 import 'jspdf-autotable';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConnectionService } from 'ng-connection-service';
 
 
 @Component({
@@ -18,7 +19,9 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ItemMasterRegisterComponent implements OnInit {
 
-  constructor(private content: ItemdataService, private contentEdit: ItemdataService , private _router: Router, @Inject(DOCUMENT) private document: Document, config: NgbModalConfig, private modalService: NgbModal) { }
+  constructor(private content: ItemdataService, private contentEdit: ItemdataService , 
+    private _router: Router, @Inject(DOCUMENT) private document: Document, config: NgbModalConfig, 
+    private modalService: NgbModal, private connectionService:ConnectionService) { }
   elements: elements[] = []; 
   filteredelements: elements[] = [];
   finalelements: elements[] = [];
@@ -32,6 +35,9 @@ export class ItemMasterRegisterComponent implements OnInit {
   
   visible:boolean = false;
   clear:boolean = false;
+
+  isConnected = true;
+  scrWidth:any;
 
   itemSelect:any
   codeSelect:any
@@ -116,6 +122,22 @@ export class ItemMasterRegisterComponent implements OnInit {
         el.style.display = "block"
       }
    };
+
+   this.connectionService.monitor().subscribe(isConnected => {
+     this.scrWidth = window.innerWidth;
+     this.isConnected = isConnected;
+     console.log(isConnected)
+      if(isConnected){
+        let temp = document.querySelector('#connection') as HTMLElement
+        temp.style.display = "none"
+      }
+      else{
+        let temp = document.querySelector('#connection') as HTMLElement
+        if(this.scrWidth <= 690){
+          temp.style.display = "block"
+        }
+      }
+   })
     
     /*--------- content (argument in constructor) has the data passed by Service  
       ----------is copied to sharedElements & logging it to check------------------------------------ */ 

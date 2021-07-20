@@ -30,13 +30,13 @@ export class AppComponent{
       if(typetemp === "landscape-primary" && typetemp1 === 90){
         let temp = document.getElementById('port') as HTMLElement
         temp.style.display = "none"
-        let temp1 = document.getElementById('land') as HTMLElement
+        let temp1 = document.getElementById('mobile-land') as HTMLElement
         temp1.style.display = "block"
       }
       else{
         let temp = document.getElementById('port') as HTMLElement
         temp.style.display = "block"
-        let temp1 = document.getElementById('land') as HTMLElement
+        let temp1 = document.getElementById('mobile-land') as HTMLElement
         temp1.style.display = "none"
       }
     }, false);

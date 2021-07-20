@@ -15,11 +15,12 @@
     text-align: -webkit-center;
     text-align: -moz-center;
 }
-/*
-#land {
+
+#mobile-land {
     display: none;
 }
 
+/*
 @media screen and (min-width: 280px) and (max-width: 767px) and (orientation: landscape) {
     #port {
         display: none;
@@ -52,8 +53,8 @@
 */
 
 #land {        
+    display: flex;
     background: var(--secondary);
-    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
