@@ -21,7 +21,33 @@ export class ItemMasterRegisterComponent implements OnInit {
 
   constructor(private content: ItemdataService, private contentEdit: ItemdataService , 
     private _router: Router, @Inject(DOCUMENT) private document: Document, config: NgbModalConfig, 
-    private modalService: NgbModal, private connectionService:ConnectionService) {    }
+    private modalService: NgbModal, private connectionService:ConnectionService) {  
+
+      window.addEventListener("offline", function(){
+        console.log("offline..")
+        if(window.innerWidth <= 690){
+          let temp = document.querySelector('#connection') as HTMLElement
+          temp.style.display = "block"
+        }
+      });
+
+      this.connectionService.monitor().subscribe(isConnected => {
+        this.scrWidth = window.innerWidth;
+        this.isConnected = isConnected;
+        console.log(isConnected)
+         if(isConnected){
+           let temp = document.querySelector('#connection') as HTMLElement
+           temp.style.display = "none"
+         }
+         else{
+           let temp = document.querySelector('#connection') as HTMLElement
+           if(this.scrWidth <= 690){
+             temp.style.display = "block"
+           }
+         }
+      })
+
+    }
   elements: elements[] = []; 
   filteredelements: elements[] = [];
   finalelements: elements[] = [];
@@ -109,14 +135,6 @@ export class ItemMasterRegisterComponent implements OnInit {
   
   ngOnInit(): void {
 
-    window.addEventListener("offline", function(){
-      console.log("offline..")
-      if(window.innerWidth <= 690){
-        let temp = document.querySelector('#connection') as HTMLElement
-        temp.style.display = "block"
-      }
-    });
-
     window.onscroll = () => {
       let windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
       let body = document.body, html = document.documentElement;
@@ -132,22 +150,6 @@ export class ItemMasterRegisterComponent implements OnInit {
       }
    };
 
-
-   this.connectionService.monitor().subscribe(isConnected => {
-     this.scrWidth = window.innerWidth;
-     this.isConnected = isConnected;
-     console.log(isConnected)
-      if(isConnected){
-        let temp = document.querySelector('#connection') as HTMLElement
-        temp.style.display = "none"
-      }
-      else{
-        let temp = document.querySelector('#connection') as HTMLElement
-        if(this.scrWidth <= 690){
-          temp.style.display = "block"
-        }
-      }
-   })
     
     /*--------- content (argument in constructor) has the data passed by Service  
       ----------is copied to sharedElements & logging it to check------------------------------------ */ 

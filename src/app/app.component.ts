@@ -41,20 +41,7 @@ export class AppComponent{
       }
     }, false);
 
-    /*if(this.scrWidth < 500){
-      if(this.scrWidth >= this.scrHeight){
-        let temp = document.getElementById('port') as HTMLElement
-        temp.style.display = "none"
-        let temp1 = document.getElementById('land') as HTMLElement
-        temp1.style.display = "block"
-      }
-      else{
-        let temp = document.getElementById('port') as HTMLElement
-        temp.style.display = "block"
-        let temp1 = document.getElementById('land') as HTMLElement
-        temp1.style.display = "none"
-      }
-    }*/
+    
   }
   constructor() {  }
   
