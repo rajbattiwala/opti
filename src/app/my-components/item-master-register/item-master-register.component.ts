@@ -19,35 +19,11 @@ import { ConnectionService } from 'ng-connection-service';
 })
 export class ItemMasterRegisterComponent implements OnInit {
 
+  onlineOffline: boolean = true;
+
   constructor(private content: ItemdataService, private contentEdit: ItemdataService , 
     private _router: Router, @Inject(DOCUMENT) private document: Document, config: NgbModalConfig, 
-    private modalService: NgbModal, private connectionService:ConnectionService) {  
-
-      window.addEventListener("offline", function(){
-        console.log("offline..")
-        if(window.innerWidth <= 690){
-          let temp = document.querySelector('#connection') as HTMLElement
-          temp.style.display = "block"
-        }
-      });
-
-      this.connectionService.monitor().subscribe(isConnected => {
-        this.scrWidth = window.innerWidth;
-        this.isConnected = isConnected;
-        console.log(isConnected)
-         if(isConnected){
-           let temp = document.querySelector('#connection') as HTMLElement
-           temp.style.display = "none"
-         }
-         else{
-           let temp = document.querySelector('#connection') as HTMLElement
-           if(this.scrWidth <= 690){
-             temp.style.display = "block"
-           }
-         }
-      })
-
-    }
+    private modalService: NgbModal, private connectionService:ConnectionService) {  }
   elements: elements[] = []; 
   filteredelements: elements[] = [];
   finalelements: elements[] = [];
@@ -134,6 +110,35 @@ export class ItemMasterRegisterComponent implements OnInit {
 
   
   ngOnInit(): void {
+
+    this.onlineOffline = navigator.onLine;
+      console.log(this.onlineOffline + " first log")
+      if(this.onlineOffline == false){
+        let temp = document.querySelector('#connection') as HTMLElement
+        temp.style.display = "block"
+        let temp1 = document.querySelector('.allelements') as HTMLElement
+        temp1.style.display = "none"
+      }
+
+    this.connectionService.monitor().subscribe(isConnected => {
+      this.scrWidth = window.innerWidth;
+      this.isConnected = isConnected;
+      console.log(isConnected)
+       if(isConnected || this.onlineOffline){
+         let temp = document.querySelector('#connection') as HTMLElement
+         temp.style.display = "none"
+         let temp1 = document.querySelector('.allelements') as HTMLElement
+         temp1.style.display = "block"
+       }
+       else{
+         let temp = document.querySelector('#connection') as HTMLElement
+         let temp1 = document.querySelector('.allelements') as HTMLElement
+         if(this.onlineOffline == false || this.scrWidth <= 690){
+           temp.style.display = "block"
+           temp1.style.display = "none"
+         }
+       }
+    })
 
     window.onscroll = () => {
       let windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;

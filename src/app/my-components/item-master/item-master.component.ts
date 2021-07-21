@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { elements } from 'src/assets/elements.model';
 import { ItemdataService } from '../../service/itemdata.service' 
+import { ConnectionService } from 'ng-connection-service';
 
 @Component({
   selector: 'app-item-master',
@@ -14,6 +15,8 @@ export class ItemMasterComponent implements OnInit {
   selected: boolean = false;
   tempid: any
   isChanged: boolean = false;
+  isConnected:any
+
 
   data = new elements
   alldata: Array<elements> = [];
@@ -138,10 +141,15 @@ export class ItemMasterComponent implements OnInit {
     }
   ];
 
-  constructor(private content: ItemdataService, private contentEdit: ItemdataService, private _route: ActivatedRoute) {}
+  constructor(private content: ItemdataService, private contentEdit: ItemdataService, private _route: ActivatedRoute, private connectionService:ConnectionService) {  }
 
   gotelements: elements[] = [];
   ngOnInit(): void {
+    this.connectionService.monitor().subscribe(isConnected => {
+      this.isConnected = isConnected;
+      console.log(this.isConnected + "logging")
+    })
+
 
     window.onscroll = () => {
       let windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;

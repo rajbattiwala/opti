@@ -10,7 +10,7 @@
           "/favicon.ico",
           "/index.html",
           "/manifest.webmanifest",
-          "/assets/warning.svg",
+          "/assets/*.svg",
           "/*.css",
           "/*.js"
         ]
@@ -23,6 +23,7 @@
       "resources": {
         "files": [
           "/assets/**",
+          "/assets/*.svg",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }
