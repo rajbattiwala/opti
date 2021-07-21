@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1626785605652,
+  "timestamp": 1626865691705,
   "index": "https://rajbattiwala.github.io/opti/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "https://rajbattiwala.github.io/opti/406.5760a5f7ac5d9cf0fbc5.js",
         "https://rajbattiwala.github.io/opti/favicon.ico",
         "https://rajbattiwala.github.io/opti/index.html",
-        "https://rajbattiwala.github.io/opti/main.5ac14900da945199c953.js",
+        "https://rajbattiwala.github.io/opti/main.4bf61f9bd057d54136f9.js",
         "https://rajbattiwala.github.io/opti/manifest.webmanifest",
         "https://rajbattiwala.github.io/opti/polyfills.e8d77825062f64aa066b.js",
         "https://rajbattiwala.github.io/opti/runtime.d32405795b04f4284799.js",
@@ -80,8 +80,8 @@
     "https://rajbattiwala.github.io/opti/assets/search.svg": "ca2e388a1e958699388300044d3282e4f5fda2cc",
     "https://rajbattiwala.github.io/opti/assets/warning.svg": "c915cbcf62ff5a128e79eaca04d69b9fdd29b256",
     "https://rajbattiwala.github.io/opti/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://rajbattiwala.github.io/opti/index.html": "e1d40817eaacc49fbc67a0c7f7b8ecb91c69c755",
-    "https://rajbattiwala.github.io/opti/main.5ac14900da945199c953.js": "a8e529df6632f8ae1ead29044f44e8e347af2536",
+    "https://rajbattiwala.github.io/opti/index.html": "4fc8216e990b7b8574bda6f75aa5a77ad66000fc",
+    "https://rajbattiwala.github.io/opti/main.4bf61f9bd057d54136f9.js": "6cbb66a4440f574f759b939020df6e8f046d5758",
     "https://rajbattiwala.github.io/opti/manifest.webmanifest": "6e15e807b75c4234d837a01d81f7df470bfa6919",
     "https://rajbattiwala.github.io/opti/polyfills.e8d77825062f64aa066b.js": "35838d7cd3321fa74f2763988e312f1cd01bfc06",
     "https://rajbattiwala.github.io/opti/runtime.d32405795b04f4284799.js": "acc8d1b20569fab288b86f9f848f87f2ce89c655",
