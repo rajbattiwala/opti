@@ -124,7 +124,7 @@ export class ItemMasterRegisterComponent implements OnInit {
       this.scrWidth = window.innerWidth;
       this.isConnected = isConnected;
       console.log(isConnected)
-       if(isConnected || this.onlineOffline){
+       if(isConnected){
          let temp = document.querySelector('#connection') as HTMLElement
          temp.style.display = "none"
          let temp1 = document.querySelector('.allelements') as HTMLElement
@@ -133,7 +133,7 @@ export class ItemMasterRegisterComponent implements OnInit {
        else{
          let temp = document.querySelector('#connection') as HTMLElement
          let temp1 = document.querySelector('.allelements') as HTMLElement
-         if(this.onlineOffline == false || this.scrWidth <= 690){
+         if(this.scrWidth <= 690){
            temp.style.display = "block"
            temp1.style.display = "none"
          }
