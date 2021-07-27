@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MetalMasterComponent } from './my-components/metal-master/metal-master.component';
 
 
 
@@ -22,7 +23,8 @@ import { environment } from '../environments/environment';
     routingComponents,
     ItemMasterComponent,
     HomeComponent,
-    ItemMasterRegisterComponent
+    ItemMasterRegisterComponent,
+    MetalMasterComponent
   ],
   imports: [
     BrowserModule,

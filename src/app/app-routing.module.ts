@@ -5,6 +5,7 @@ import { ItemMasterRegisterComponent } from './my-components/item-master-registe
 import { ItemMasterComponent } from './my-components/item-master/item-master.component';
 import { LoginComponent } from './my-components/login/login.component';
 import { RegisterComponent } from './my-components/register/register.component';
+import { MetalMasterComponent } from './my-components/metal-master/metal-master.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'item-master', component: ItemMasterComponent},
   {path: 'item-master/:id', component: ItemMasterComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'item-master-register', component: ItemMasterRegisterComponent}
+  {path: 'item-master-register', component: ItemMasterRegisterComponent},
+  {path: 'metal-master', component: MetalMasterComponent}
 ];
 
 @NgModule({
@@ -22,4 +24,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [RegisterComponent, LoginComponent, ItemMasterComponent, HomeComponent, ItemMasterRegisterComponent]
+export const routingComponents = [RegisterComponent, LoginComponent, ItemMasterComponent, HomeComponent, ItemMasterRegisterComponent, MetalMasterComponent]

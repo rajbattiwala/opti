@@ -47,7 +47,7 @@ a {
     width: fit-content;
     display: grid;
     grid-gap: 2em;
-    grid-template-columns: 4em 7em 3em;
+    grid-template-columns: 4em 7em 7.5em 3em;
 }
 
 /*.nav-item {
@@ -55,7 +55,6 @@ a {
 }*/
 
 .nav-link{
-    width: 9em;
     text-align: left;
     font-size: 1.2em;
     font-weight: 400;
@@ -101,6 +100,11 @@ a {
     .nav-menu.active {
         left: 0;
         z-index: 2000;
+    }
+
+    .nav-link{
+        width: 9em;
+        text-align: left;
     }
 
     .darken-bg{

@@ -1,0 +1,107 @@
+<div class="container1">
+    <div class="form-bg">
+        <div class="head">
+            <h2>Metal Master</h2>
+            <div class="line"></div>
+        </div>
+        <form #f="ngForm">
+            <div class="input-names">
+                <label for="item">Derived From</label>
+                <select id="derived" name="item" class="form-control" ngModel>
+                    <option value="" disabled selected>--Select--</option>
+                    <option *ngFor="let item of rec" [ngValue]="item">
+                    {{ item.name }}
+                    </option>
+                </select>
+            </div>
+            
+            <div class="input-names"> 
+                <label for="name">Metal Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Enter Metal Name" [(ngModel)]="recname" [value]="f.value.item.name" required>
+            </div>
+            <div class="input-names">
+                <label for="type">Metal Group</label>
+                <div class="group">
+                    <select class="form-control" id="metalgroup" name="type" [(ngModel)]="rectype">
+                        <option value="" disabled selected>--Select--</option>
+                        <option *ngFor="let item of rec" [selected]="item.type == f.value.item.type">
+                        {{ item.type }}
+                        </option>
+                    </select>
+                    <button class="add-btn" (click)="hide()">+</button>
+                </div>
+            </div>
+            
+            <div *ngIf="selected" class="input-names" id="new-group">
+                <input class="form-control" id="unit" type="text" placeholder="New Metal group" required>
+            </div>
+            <div class="input-names"> 
+                <label for="std">Grade Standard</label>
+                <input class="form-control" type="text" name="std" placeholder="Enter Grade" [(ngModel)]="recstd" [value]="f.value.item.std" required>
+            </div>
+            <h3>Final Chemistry</h3>
+            <button (click)="openVerticallyCentered(content)">Add Elements</button>
+
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title">Add Elements</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div *ngFor="let elem of list" class="check-individual">
+                        <input type="checkbox" name="{{elem.name}}" [(ngModel)]="elem.isChecked" (change)="changeSelection()">
+                        <label for="{{elem.name}}">{{elem.name}}</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                </div>
+            </ng-template>
+
+            <!--<ul>
+                <li *ngFor="let item of selectedItemsList">{{item.name}}</li>
+            </ul>-->
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Element</td>
+                        <td>Min</td>
+                        <td>Max</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of selectedItemsList">
+                        <td>{{item.name}}</td>
+                        <td><input type="number" class="value-control" placeholder="0"></td>
+                        <td><input type="number" class="value-control" placeholder="0"></td>
+                    </tr>
+                    <tr *ngFor="let data of f.value.item.elements">
+                        <td>{{data.tag}}</td>
+                        <td><input type="number" class="value-control" placeholder="{{data.min}}"></td>
+                        <td><input type="number" class="value-control" placeholder="{{data.max}}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>    
+    </div>
+    
+    <!--{{f.value | json}}-->
+    <div style="position: absolute; width: 780px;
+        height: 340px; right: 0px;
+        bottom: 0px;
+        background: linear-gradient(131.17deg, rgb(161, 206, 255) 42.31%, rgba(255, 255, 255, 0) 106.07%);
+        clip-path: polygon(0px 100%, 100% 100%, 100% 0px);
+        opacity: 0.4;">
+    </div> 
+    <div style="position: absolute;
+        width: 100%;
+        height: 80%;
+        bottom: 0px;
+        background: linear-gradient(161.17deg, rgb(161, 206, 255) 30%, rgba(255, 255, 255, 0) 84.07%);
+        clip-path: polygon(0% 0%, 0% 0%, 100% 100%, 0% 100%);
+        opacity: 0.15;">
+    </div> 
+</div>
