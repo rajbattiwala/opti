@@ -1,9 +1,23 @@
 {
   "name": "opti-mix",
-  "short_name": "opti-mix",
+  "short_name": "OptiMix",
   "theme_color": "#1a8efd",
   "background_color": "#fafafa",
   "display": "standalone",
+  "shortcuts": [
+    {
+      "name": "Item Master",
+      "url": "/item-master",
+      "description": "Add new Item"
+    },
+    {
+      "name": "Item Master Register",
+      "short_name": "Master Register",
+      "description": "View your Register",
+      "url": "/item-master-register",
+      "icons": [{"src": "assets/icons/icon-72x72.png", "sizes": "72x72"}]
+    }
+  ],
   "scope": "./",
   "start_url": "./",
   "icons": [

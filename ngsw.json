@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1626871871397,
+  "timestamp": 1627390872379,
   "index": "https://rajbattiwala.github.io/opti/index.html",
   "assetGroups": [
     {
@@ -14,19 +14,9 @@
         "https://rajbattiwala.github.io/opti/213.c0be3268f7ddf4560096.js",
         "https://rajbattiwala.github.io/opti/33.97f9bfa86fed3562bdf9.js",
         "https://rajbattiwala.github.io/opti/406.5760a5f7ac5d9cf0fbc5.js",
-        "https://rajbattiwala.github.io/opti/assets/arrow_right.svg",
-        "https://rajbattiwala.github.io/opti/assets/chemistry.svg",
-        "https://rajbattiwala.github.io/opti/assets/delete.svg",
-        "https://rajbattiwala.github.io/opti/assets/download.svg",
-        "https://rajbattiwala.github.io/opti/assets/edit.svg",
-        "https://rajbattiwala.github.io/opti/assets/filter.svg",
-        "https://rajbattiwala.github.io/opti/assets/orientation.svg",
-        "https://rajbattiwala.github.io/opti/assets/register.svg",
-        "https://rajbattiwala.github.io/opti/assets/search.svg",
-        "https://rajbattiwala.github.io/opti/assets/warning.svg",
         "https://rajbattiwala.github.io/opti/favicon.ico",
         "https://rajbattiwala.github.io/opti/index.html",
-        "https://rajbattiwala.github.io/opti/main.23fcd434b85e7504bd0e.js",
+        "https://rajbattiwala.github.io/opti/main.5895704152965a6f7d36.js",
         "https://rajbattiwala.github.io/opti/manifest.webmanifest",
         "https://rajbattiwala.github.io/opti/polyfills.e8d77825062f64aa066b.js",
         "https://rajbattiwala.github.io/opti/runtime.d32405795b04f4284799.js",
@@ -42,7 +32,14 @@
         "ignoreVary": true
       },
       "urls": [
+        "https://rajbattiwala.github.io/opti/assets/arrow.svg",
+        "https://rajbattiwala.github.io/opti/assets/arrow_right.svg",
+        "https://rajbattiwala.github.io/opti/assets/chemistry.svg",
+        "https://rajbattiwala.github.io/opti/assets/delete.svg",
+        "https://rajbattiwala.github.io/opti/assets/download.svg",
+        "https://rajbattiwala.github.io/opti/assets/edit.svg",
         "https://rajbattiwala.github.io/opti/assets/elements.model.ts",
+        "https://rajbattiwala.github.io/opti/assets/filter.svg",
         "https://rajbattiwala.github.io/opti/assets/icons/icon-128x128.png",
         "https://rajbattiwala.github.io/opti/assets/icons/icon-144x144.png",
         "https://rajbattiwala.github.io/opti/assets/icons/icon-152x152.png",
@@ -50,7 +47,11 @@
         "https://rajbattiwala.github.io/opti/assets/icons/icon-384x384.png",
         "https://rajbattiwala.github.io/opti/assets/icons/icon-512x512.png",
         "https://rajbattiwala.github.io/opti/assets/icons/icon-72x72.png",
-        "https://rajbattiwala.github.io/opti/assets/icons/icon-96x96.png"
+        "https://rajbattiwala.github.io/opti/assets/icons/icon-96x96.png",
+        "https://rajbattiwala.github.io/opti/assets/orientation.svg",
+        "https://rajbattiwala.github.io/opti/assets/register.svg",
+        "https://rajbattiwala.github.io/opti/assets/search.svg",
+        "https://rajbattiwala.github.io/opti/assets/warning.svg"
       ],
       "patterns": []
     }
@@ -60,6 +61,7 @@
     "https://rajbattiwala.github.io/opti/213.c0be3268f7ddf4560096.js": "8f665f65260d6a8fb19444f499d31f069515498b",
     "https://rajbattiwala.github.io/opti/33.97f9bfa86fed3562bdf9.js": "615c0a36ceb16a340f3042c69eddc43125da0c05",
     "https://rajbattiwala.github.io/opti/406.5760a5f7ac5d9cf0fbc5.js": "ba1557559554b8ff2fa0106ff96914c0195972e9",
+    "https://rajbattiwala.github.io/opti/assets/arrow.svg": "f103f569cf81595cfe0c5b487fb0cdf97ebac9ed",
     "https://rajbattiwala.github.io/opti/assets/arrow_right.svg": "effa1365481d8cb78799349580aed5c9a879cf27",
     "https://rajbattiwala.github.io/opti/assets/chemistry.svg": "94a5503117bc53fb18d0e92caaba5c38b89487fa",
     "https://rajbattiwala.github.io/opti/assets/delete.svg": "9c990ebba6bbb748ff9a6d484bb180cb07d335e7",
@@ -80,9 +82,9 @@
     "https://rajbattiwala.github.io/opti/assets/search.svg": "ca2e388a1e958699388300044d3282e4f5fda2cc",
     "https://rajbattiwala.github.io/opti/assets/warning.svg": "c915cbcf62ff5a128e79eaca04d69b9fdd29b256",
     "https://rajbattiwala.github.io/opti/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://rajbattiwala.github.io/opti/index.html": "5735bf6196710c7bfcf7e69358b750b240b42a6e",
-    "https://rajbattiwala.github.io/opti/main.23fcd434b85e7504bd0e.js": "945a36ae8eaa5e74eb5d0f8234ecfc89541e78e4",
-    "https://rajbattiwala.github.io/opti/manifest.webmanifest": "6e15e807b75c4234d837a01d81f7df470bfa6919",
+    "https://rajbattiwala.github.io/opti/index.html": "e3e0c23d36b23f920004361249df712f50de8c46",
+    "https://rajbattiwala.github.io/opti/main.5895704152965a6f7d36.js": "a66b7ed1c7d4cd55d7a685907076d1b6bf906e08",
+    "https://rajbattiwala.github.io/opti/manifest.webmanifest": "4575bc4acdc4fe359d3e949b418e6dfa9bb452ec",
     "https://rajbattiwala.github.io/opti/polyfills.e8d77825062f64aa066b.js": "35838d7cd3321fa74f2763988e312f1cd01bfc06",
     "https://rajbattiwala.github.io/opti/runtime.d32405795b04f4284799.js": "acc8d1b20569fab288b86f9f848f87f2ce89c655",
     "https://rajbattiwala.github.io/opti/styles.c60bce285565d356c9f1.css": "663a848dc4af71c01d27c3bed243e127bfb49079"
