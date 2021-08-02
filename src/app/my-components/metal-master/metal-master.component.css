@@ -11,6 +11,7 @@
     height: auto;
     width: 90%;
     max-width: 70em;
+    padding: 0 6% 2em 6%;
     border-radius: 1rem 1rem;    
     margin-bottom: 2em;
     box-shadow: 0.4rem 0.4rem 1rem rgb(122 191 255 / 22%), 
@@ -32,14 +33,35 @@ label {
     display: flex;
     flex-wrap: wrap;
     padding-top: 2em;
-    padding-left: 10%;    
-    padding-right: 10%;
+    /*padding-left: 6%;    
+    padding-right: 6%;*/
 }
 
 .line{
     border-bottom: 1px solid var(--tertiary);
     width: 100%;
     display: block;
+}
+
+.left {
+    /*display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    width: 50%;
+    float: left;*/
+    display: flex;
+    margin-bottom: 6px;
+    flex-direction: row;
+    padding-top: 1em;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.right {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .form-control {
@@ -59,18 +81,25 @@ label {
 }
 
 .input-names {
-    margin-top: 8px;
-    width: 90%;
+    margin-bottom: 8px;
+    width: 100%;
     height: fit-content;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    max-width: 21em;
+    max-width: 23em;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     min-height: 30px;
+}
+
+.grp {
+    display: flex;
+    width: 100%;
+    max-width: 23em;
+    flex-direction: column;
 }
 
 select {
@@ -103,4 +132,275 @@ select {
 
 #new-group {
     justify-content: flex-end;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.cust-btn {
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 0px 12px;
+    word-spacing: 8px;
+    height: 24px;
+    font-weight: 400;
+    color: white;
+    border: solid 2px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(to bottom right, var(--primary), var(--darkprimary));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: none;
+}
+
+button.cust-btn:hover {
+    box-shadow: 2px 23px 1px rgba(0 0 0 / 16%) inset;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.save {
+    width: 6em;
+    margin-top: 2em;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.modal-title {
+    font-size: 20px;
+    text-align: left;
+    margin: 0;
+    color: var(--tertiary);
+    font-weight: 500; 
+}
+
+th {
+    background-color: var(--secondary);
+    font-weight: 550;
+}
+
+td, th {
+    border: 1px solid rgba(109 127 134 / 60%);
+    width: 5.62em;
+    text-align: center;
+    padding: 0;
+    color: var(--tertiary);
+}
+
+input.value-control {
+    height: 21px;
+    width: 100%;
+    display: flex;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+
+.value-control:focus , input[type=number]:focus , .add-btn:focus-visible {
+    border: 1px solid var(--primary) !important;
+}
+
+.value-control:focus-visible , input[type=number]:focus-visible , .add-btn:focus-visible {
+    border: none;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block;
+}
+
+.tbl-cont {
+    padding-top: 1em;
+}
+
+h3 {
+    color: var(--tertiary);
+    font-weight: 500;
+    margin: 0;
+    text-align: left;
+}
+
+.nodata {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+    background-color: #fcfeff;
+    border-right: 1px solid rgba(109 127 134 / 60%);
+    border-left: 1px solid rgba(109 127 134 / 60%);
+    border-bottom: 1px solid rgba(109 127 134 / 60%);
+    width: 100%;
+    height: 170px;
+}
+
+.nodata > img , .nodata > h3 {
+    opacity: 0.3;
+    margin: 0;
+}
+
+.nodata > h3 {
+    font-weight: 500;
+    color: var(--tertiary);
+}
+
+.check-individual {
+    width: 100%;
+    min-width: 14em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.check-individual:focus-within {
+    font-weight: 500;
+    text-decoration: 1px underline rgba(26 192 253 / 60%);
+}
+
+.check-individual {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.check-individual:focus-within {
+    font-weight: 500;
+    text-decoration: 1px underline rgba(26 192 253 / 60%);
+}
+
+.checkbox-custom {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkbox-custom, .checkbox-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    width: 6em;
+}
+
+.checkbox-custom {
+    width: 5em;
+    height: 1.5em;
+}
+
+.checkbox-custom + .checkbox-custom-label:before {
+    content: '';
+    background: #fff;
+    border-radius: 5px;
+    border: 1.4px solid rgba(109 127 134 / 60%);
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+    transition: 0.008s ease-in-out;
+}
+
+.checkbox-custom:checked + .checkbox-custom-label:before {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 15px;
+    border: solid var(--darkprimary);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    border-radius: 0px;
+    margin: 0px 13px 2px 5px;
+    transition-timing-function: ease-in-out;
+    transition: ease-in-out;
+}
+
+.set {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.set > button {
+    margin-top: 3px;
+    margin-left: 16px;
+}
+
+.center-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5em 0 0.5em 0;
+}
+
+.center-btn > button {
+    margin: 0;
+}
+
+#th-addtable {
+    width: 9em;
+}
+
+.modalBdyCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 460px) {
+
+    .form-bg {
+        width: 97%;
+    }
+    
+    .right {
+        justify-content: center;
+    }
+
+    td , th {
+        width: 7.62em;
+    }
+
+    .grp {
+        max-width: none;
+    }
+
+    .input-names {
+        max-width: none;
+    }
+
+    .set {
+        justify-content: flex-end;
+        margin-bottom: 8px;
+    }
+
+    .set > button {
+        margin: 0;
+    }
 }

@@ -23,3 +23,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .dark-blue-backdrop { 
   background-color: rgba(5, 45, 84, 1) !important; 
 }
+
+/*----#############-----------------------------------
+---------------------------Tooltip ----------------
+------------------------------------#######################----------*/
+
+.bs-tooltip-auto[x-placement^=top] .arrow::before, .bs-tooltip-top .arrow::before {
+  top: 0;
+  border-width: .4rem .4rem 0;
+  border-top-color: var(--tertiary);
+}
+
+.tooltip-inner {
+  color: #fff;
+  background-color: var(--tertiary);
+}

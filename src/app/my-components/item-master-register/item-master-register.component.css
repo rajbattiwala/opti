@@ -45,6 +45,10 @@ img{
     1rem 1.2rem 2rem rgb(149 202 252 / 30%);
 }
 
+.searchbar:focus-within {
+    border: 1px solid rgba(26 142 253 / 65%) !important;
+}
+
 .searchbar > img {
     left: 15px;
 }

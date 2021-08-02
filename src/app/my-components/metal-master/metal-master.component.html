@@ -5,87 +5,266 @@
             <div class="line"></div>
         </div>
         <form #f="ngForm">
-            <div class="input-names">
-                <label for="item">Derived From</label>
-                <select id="derived" name="item" class="form-control" ngModel>
-                    <option value="" disabled selected>--Select--</option>
-                    <option *ngFor="let item of rec" [ngValue]="item">
-                    {{ item.name }}
-                    </option>
-                </select>
-            </div>
-            
-            <div class="input-names"> 
-                <label for="name">Metal Name</label>
-                <input class="form-control" type="text" name="name" placeholder="Enter Metal Name" [(ngModel)]="recname" [value]="f.value.item.name" required>
-            </div>
-            <div class="input-names">
-                <label for="type">Metal Group</label>
-                <div class="group">
-                    <select class="form-control" id="metalgroup" name="type" [(ngModel)]="rectype">
+            <div class="left">
+                <div class="input-names">
+                    <label for="item">Derived From</label>
+                    <select id="derived" name="item" class="form-control" ngModel>
                         <option value="" disabled selected>--Select--</option>
-                        <option *ngFor="let item of rec" [selected]="item.type == f.value.item.type">
-                        {{ item.type }}
+                        <option *ngFor="let item of rec" [ngValue]="item">
+                        {{ item.name }}
                         </option>
                     </select>
-                    <button class="add-btn" (click)="hide()">+</button>
                 </div>
-            </div>
-            
-            <div *ngIf="selected" class="input-names" id="new-group">
-                <input class="form-control" id="unit" type="text" placeholder="New Metal group" required>
-            </div>
-            <div class="input-names"> 
-                <label for="std">Grade Standard</label>
-                <input class="form-control" type="text" name="std" placeholder="Enter Grade" [(ngModel)]="recstd" [value]="f.value.item.std" required>
-            </div>
-            <h3>Final Chemistry</h3>
-            <button (click)="openVerticallyCentered(content)">Add Elements</button>
-
-            <ng-template #content let-modal>
-                <div class="modal-header">
-                  <h4 class="modal-title">Add Elements</h4>
-                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                
+                <div class="input-names"> 
+                    <label for="name">Metal Name</label>
+                    <input class="form-control" type="text" name="name" placeholder="Enter Metal Name" [(ngModel)]="recname" [value]="f.value.item.name" required>
                 </div>
-                <div class="modal-body">
-                    <div *ngFor="let elem of list" class="check-individual">
-                        <input type="checkbox" name="{{elem.name}}" [(ngModel)]="elem.isChecked" (change)="changeSelection()">
-                        <label for="{{elem.name}}">{{elem.name}}</label>
+                <div class="grp">
+                    <div class="input-names">
+                        <label for="type">Metal Group</label>
+                        <div class="group">
+                            <select class="form-control" id="metalgroup" name="type" [(ngModel)]="rectype">
+                                <option value="" disabled selected>--Select--</option>
+                                <option *ngFor="let item of rec" [selected]="item.type == f.value.item.type">
+                                {{ item.type }}
+                                </option>
+                            </select>
+                            <button class="add-btn" (click)="hide()">+</button>
+                        </div>
+                    </div>
+                    
+                    <div *ngIf="selected" class="input-names" id="new-group">
+                        <input class="form-control" id="unit" type="text" placeholder="New Metal group" name="type" [(ngModel)]="rectypenew" required>
                     </div>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                
+                <div class="input-names"> 
+                    <label for="std">Grade Standard</label>
+                    <input class="form-control" type="text" name="std" placeholder="Enter Grade" [(ngModel)]="recstd" [value]="f.value.item.std" required>
                 </div>
-            </ng-template>
+            </div>
 
-            <!--<ul>
-                <li *ngFor="let item of selectedItemsList">{{item.name}}</li>
-            </ul>-->
+            <div class="right">
+                <div class="tbl-cont">
+                    <div class="heading">
+                        <h3>Final Chemistry</h3>
+                        <!--<button (click)="openVerticallyCentered(content)">Add Elements</button>-->
+                        <button class="cust-btn" (click)="openVerticallyCentered(content)" placement="top" ngbTooltip="Add Elements">+  Add</button>
+                    </div>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <td>Element</td>
-                        <td>Min</td>
-                        <td>Max</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of selectedItemsList">
-                        <td>{{item.name}}</td>
-                        <td><input type="number" class="value-control" placeholder="0"></td>
-                        <td><input type="number" class="value-control" placeholder="0"></td>
-                    </tr>
-                    <tr *ngFor="let data of f.value.item.elements">
-                        <td>{{data.tag}}</td>
-                        <td><input type="number" class="value-control" placeholder="{{data.min}}"></td>
-                        <td><input type="number" class="value-control" placeholder="{{data.max}}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>    
+                    <ng-template #content let-modal>
+                        <div class="modal-header">
+                        <h4 class="modal-title">Add Elements</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--<div *ngFor="let elem of list" class="check-individual">
+                                <input type="checkbox" name="{{elem.name}}" [(ngModel)]="elem.isChecked" (change)="changeSelection()">
+                                <label for="{{elem.name}}">{{elem.name}}</label>
+                            </div>-->
+                            <div class="check-individual">
+                                <div *ngFor="let elem of list">
+                                    <input class="checkbox-custom" type="checkbox" name="{{elem.name}}" [(ngModel)]="elem.isChecked" (change)="changeSelection()">
+                                    <label for="{{elem.name}}" class="checkbox-custom-label">{{elem.name}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                        </div>
+                    </ng-template>
+
+                    <!--<ul>
+                        <li *ngFor="let item of selectedItemsList">{{item.name}}</li>
+                    </ul>-->
+
+                   <table>
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of selectedItemsList">
+                                <td>{{item.name}}</td>
+                                <td><input type="number" class="value-control" placeholder="0"></td>
+                                <td><input type="number" class="value-control" placeholder="0"></td>
+                            </tr>
+                            <tr *ngFor="let data of f.value.item.elements">
+                                <td>{{data.tag}}</td>
+                                <td><input type="number" class="value-control" placeholder="{{data.min}}"></td>
+                                <td><input type="number" class="value-control" placeholder="{{data.max}}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="nodata" [ngClass]="selectedItemsList.length == 0 && f.value.item.elements == null ? 'visible': 'hidden'"><img src="assets/no-data.svg" style="height: 8em; width: 8em;"><h3>No Data</h3></div>
+                </div>
+
+                <div class="tbl-cont">
+                    <div class="heading">
+                        <h3>Target at Correction</h3>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of selectedItemsList">
+                                <td>{{item.name}}</td>
+                                <td><input type="number" class="value-control" placeholder="0"></td>
+                            </tr>
+                            <tr *ngFor="let data of f.value.item.elements">
+                                <td>{{data.tag}}</td>
+                                <td><input type="number" class="value-control" placeholder="0"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="nodata" id="target" [ngClass]="selectedItemsList.length == 0 && f.value.item.elements == null ? 'visible': 'hidden'"><img src="assets/no-data.svg" style="height: 5em; width: 5em;"><h3>No Data</h3></div>
+                </div>
+
+                <div class="tbl-cont">
+                    <div class="heading">
+                        <h3>Bath Chemistry</h3>
+                        <button class="cust-btn" (click)="openVerticallyCentered(bathchem)" placement="top" ngbTooltip="Additional Details">+ Add</button>
+                    </div>
+                    <ng-template #bathchem let-modal>
+                        <div class="modal-header">
+                        <h4 class="modal-title">Additional Details</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="set">
+                                <div class="input-names">
+                                    <label for="item">Addition Name</label>
+                                    <select class="form-control" name="addname" [(ngModel)]="addiData">
+                                        <option value="" disabled selected>--Select--</option>
+                                        <option *ngFor="let i of bathAddName">{{i.addname}}</option>
+                                    </select>
+                                </div>
+                                <button class="cust-btn" (click)="openVerticallyCentered(additiontype)" placement="left" ngbTooltip="Add Addition Type">+  Add</button>    
+                            </div>
+                            
+                            <ng-template #additiontype let-modal>
+                                <div class="modal-header">
+                                <h4 class="modal-title">Add Addition Type</h4>
+                                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body modalBdyCenter">
+                                    <div class="input-names">
+                                        <label for="addname">Addition Name</label>
+                                        <input class="form-control" type="text" name="addname" placeholder="Enter Name" [(ngModel)]="addNewName" required>
+                                    </div>
+                                    <div class="input-names">
+                                        <label for="shortcode">Short Code</label>
+                                        <input class="form-control" type="text" name="shortcode" placeholder="Enter Short" [(ngModel)]="addNewCode" required>
+                                    </div>
+                                    <div class="center-btn">
+                                        <button class="save cust-btn" (click)="additionNewNameSave()">Save</button>
+                                    </div>
+                                    <div class="tbl-cont">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th id="th-addtable">Addition Name</th>
+                                                    <th id="th-addtable">Short Code</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let n of bathAddName">
+                                                    <td>{{n.addname}}</td>
+                                                    <td>{{n.shortcode}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="nodata" [ngClass]="bathAddName.length == 0 ? 'visible': 'hidden'"><img src="assets/no-data.svg" style="height: 5em; width: 5em;"><h3>No Data</h3></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                                </div>
+                            </ng-template>
+
+                            <div class="input-names">
+                                <label for="item">Item Name</label>
+                                <select class="form-control" name="itemname" [(ngModel)]="addiItem">
+                                    <option value="" disabled selected>--Select--</option>
+                                    <option>Fe Nb (Steel-01)</option>
+                                    <option>9% Cu wire</option>
+                                    <option>0.8 Ni 12 CR Scrap</option>
+                                    <option>321 Turning</option>
+                                </select>
+                            </div>
+                            <div class="input-names">
+                                <label for="qty">Qty(%)</label>
+                                <input class="form-control" type="number" name="qty" placeholder="Enter Quantity" [(ngModel)]="bathqty" required>
+                            </div>
+                            <div class="center-btn">
+                                <button class="save cust-btn" (click)="additionalSave()">Save</button>
+                            </div>
+                            <div class="tbl-cont">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th id="th-addtable">Addition Name</th>
+                                            <th id="th-addtable">Short Code</th>
+                                            <th id="th-addtable">Item Name</th>
+                                            <th id="th-addtable">Qty(%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let m of additionalDetailsnew">
+                                            <td>{{m.addname}}</td>
+                                            <td>{{m.shortcode}}</td>
+                                            <td>{{m.itemname}}</td>
+                                            <td>{{m.qty}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="nodata" id="addi" [ngClass]="additionalDetailsnew.length == 1 ? 'visible': 'hidden'"><img src="assets/no-data.svg" style="height: 5em; width: 5em;"><h3>No Data</h3></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                        </div>
+                    </ng-template>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>Min</th>
+                                <th>Max</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of selectedItemsList">
+                                <td>{{item.name}}</td>
+                                <td><input type="number" class="value-control" placeholder="0"></td>
+                                <td><input type="number" class="value-control" placeholder="0"></td>
+                            </tr>
+                            <tr *ngFor="let data of f.value.item.elements">
+                                <td>{{data.tag}}</td>
+                                <td><input type="number" class="value-control" placeholder="0"></td>
+                                <td><input type="number" class="value-control" placeholder="0"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="nodata" [ngClass]="selectedItemsList.length == 0 && f.value.item.elements == null ? 'visible': 'hidden'"><img src="assets/no-data.svg" style="height: 8em; width: 8em;"><h3>No Data</h3></div>
+                </div>
+            </div>
+            <button class="save cust-btn" (click)="saveData()">Save</button>
+        </form>
     </div>
     
     <!--{{f.value | json}}-->
